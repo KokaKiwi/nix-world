@@ -1,0 +1,6 @@
+{ ... }:
+{
+  imports = [
+    ./kde/akonadi.nix
+  ];
+}

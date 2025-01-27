@@ -1,0 +1,57 @@
+From 559a518895fad27a527104ad7394bc94b24959c7 Mon Sep 17 00:00:00 2001
+From: KokaKiwi <kokakiwi+git@kokakiwi.net>
+Date: Sat, 12 Oct 2024 12:36:08 +0200
+Subject: [PATCH] PR#5957: espanso: add sandboxing for systemd service
+
+Squashed commit of the following:
+
+commit ff2f6b3f09ec14d0734b7fb40ef2510ef8a07de9
+Author: Muhammad Talal Anwar <talalanwar@outlook.com>
+Date:   Sat Oct 12 09:32:23 2024 +0200
+
+    espanso: remove `Type` and add `RestartSec`
+
+    This conforms the systemd service as it is defined by source:
+    https://github.com/espanso/espanso/blob/b421bcf73fa13506938d62425459d6c16c6a8d0a/espanso/src/res/linux/systemd.service#L5-L7C1
+
+commit e4fe675467af5ad1934d7d580e28451aef06a3e5
+Author: Muhammad Talal Anwar <talalanwar@outlook.com>
+Date:   Sat Oct 12 05:39:05 2024 +0200
+
+    espanso: add sandboxing for systemd service
+
+commit cb32df1a4ae508adc91acd953d819e0e2f74684e
+Author: Muhammad Talal Anwar <talalanwar@outlook.com>
+Date:   Sat Oct 12 05:29:35 2024 +0200
+
+    espanso: use `launcher` command on Linux
+
+    The source uses `launcher` instead of `daemon`:
+    https://github.com/espanso/espanso/blob/b421bcf73fa13506938d62425459d6c16c6a8d0a/espanso/src/res/linux/systemd.service#L5
+---
+ modules/services/espanso.nix | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/modules/services/espanso.nix b/modules/services/espanso.nix
+index dbfa0587..00136c83 100644
+--- a/modules/services/espanso.nix
++++ b/modules/services/espanso.nix
+@@ -124,6 +124,15 @@ in {
+         ExecStart = "${cfg.package}/bin/espanso launcher";
+         Restart = "on-failure";
+         RestartSec = 3;
++
++        # Sandboxing.
++        LockPersonality = true;
++        MemoryDenyWriteExecute = true;
++        NoNewPrivileges = true;
++        PrivateUsers = true;
++        RestrictNamespaces = true;
++        SystemCallArchitectures = "native";
++        SystemCallFilter = "@system-service";
+       };
+       Install = { WantedBy = [ "default.target" ]; };
+     };
+-- 
+2.47.1
+

@@ -1,0 +1,99 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "praise"
+required-features = ["ssr"]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+leptos = { version = "0.6.15", features = ["tracing"] }
+leptos-fluent = { version = "0.1.25", features = ["tracing"] }
+leptos_meta = "0.6.12"
+leptos_router = "0.6.12"
+# leptos-use = "0.13.7"
+wasm-bindgen = "0.2.93"
+
+fluent-templates = "0.11.0"
+http = "1.1.0"
+tailwind_fuse = { version = "0.3.1", features = ["variant"] }
+
+console_error_panic_hook = { version = "0.1", optional = true }
+
+miette = { version = "7.2.0", features = ["fancy"], optional = true }
+thiserror = "1.0.61"
+
+tracing = "0.1.40"
+tracing-error = { version = "0.2.0", optional = true }
+tracing-subscriber = { version = "0.3.18", features = ["env-filter", "json"], optional = true }
+
+clap = { version = "4.5.20", features = ["derive", "env"], optional = true }
+
+axum = { version = "0.7.5", optional = true }
+leptos_axum = { version = "0.6.12", optional = true }
+tokio = { version = "1.38.0", features = ["rt-multi-thread"], optional = true }
+tower = { version = "0.5.1", optional = true }
+tower-http = { version = "0.6.1", features = ["fs"], optional = true }
+
+[features]
+hydrate = [
+  "leptos/hydrate",
+  "leptos_meta/hydrate",
+  "leptos_router/hydrate",
+  "leptos-fluent/hydrate",
+
+  "dep:console_error_panic_hook",
+]
+ssr = [
+  "leptos-fluent/ssr",
+  "leptos/ssr",
+  "leptos_meta/ssr",
+  "leptos_router/ssr",
+  # "leptos-use/ssr",
+
+  "leptos-fluent/axum",
+  # "leptos-use/axum",
+
+  "dep:clap",
+  "dep:miette",
+
+  "dep:tracing-error",
+  "dep:tracing-subscriber",
+
+  "dep:axum",
+  "dep:leptos_axum",
+  "dep:tokio",
+  "dep:tower",
+  "dep:tower-http",
+]
+
+[profile.wasm-release]
+inherits = "release"
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[package.metadata.leptos]
+output-name = "{{project-name}}"
+
+site-root = "target/site"
+site-pkg-dir = "pkg"
+
+tailwind-input-file = "css/main.css"
+
+browserquery = "defaults"
+watch-additional-files = [
+  "locales",
+]
+
+bin-features = ["ssr"]
+bin-default-features = false
+
+lib-features = ["hydrate"]
+lib-default-features = false
+lib-profile-release = "wasm-release"

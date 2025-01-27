@@ -1,0 +1,119 @@
+cargo := env_var_or_default('CARGO_BIN', 'cargo')
+cargo-all-features := env_var_or_default('CARGO_ALL_FEATURES', '0')
+cargo-features := env_var_or_default('CARGO_FEATURES', '')
+cargo-use-workspace := env_var_or_default('CARGO_WORKSPACE', '0')
+cargo-target := env_var_or_default('CARGO_TARGET', '')
+cargo-profile := env_var_or_default('CARGO_PROFILE', '')
+cargo-bench-backend := env_var_or_default('CARGO_BENCH_BACKEND', 'bench')
+
+workspace-prefix := env_var_or_default('CARGO_WORKSPACE_PREFIX', '')
+
+cargo-flags := ''
+
+cargo-workspace-flag := if cargo-use-workspace == '1' {
+  '--workspace'
+} else {
+  ''
+}
+
+cargo-target-flag := if cargo-target != '' {
+  '--target ' + cargo-target
+} else {
+  ''
+}
+
+cargo-profile-flag := if cargo-profile != '' {
+  '--profile ' + cargo-profile
+} else {
+  ''
+}
+
+cargo-features-flag := if cargo-all-features == '1' {
+  '--all-features'
+} else if cargo-features != '' {
+  '--features=' + quote(cargo-features)
+} else {
+  ''
+}
+
+cargo-flags-all := trim(
+  cargo-flags
+  + ' ' + cargo-features-flag
+  + ' ' + cargo-workspace-flag
+  + ' ' + cargo-target-flag
+  + ' ' + cargo-profile-flag
+)
+
+cargo-flags-doc := trim(
+  cargo-flags
+  + ' ' + cargo-features-flag
+  + ' ' + cargo-workspace-flag
+  + ' ' + cargo-target-flag
+)
+
+alias check := clippy
+
+# Build crate and generate doc
+all: build doc
+
+_cargo *ARGS:
+  {{cargo}} {{ARGS}}
+
+# Run arbitrary cargo command
+cargo COMMAND *ARGS: (_cargo COMMAND cargo-flags-all ARGS)
+
+# Build crate
+build: (cargo 'build')
+# Generate doc
+doc: (_cargo 'doc' cargo-flags-doc '--document-private-items')
+
+# Run tests
+test *ARGS: (cargo 'nextest run' ARGS)
+
+# Run benchmark
+bench *ARGS: (_cargo cargo-bench-backend ARGS)
+
+# Run cargo clippy
+clippy *ARGS: (cargo 'clippy' ARGS)
+
+# Update Cargo.lock
+update *ARGS: (_cargo 'update' cargo-flags ARGS)
+# Check outdated dependencies
+outdated *ARGS: (_cargo 'outdated' cargo-flags cargo-workspace-flag ARGS)
+outdated-direct *ARGS: (outdated '-d' '1' ARGS)
+
+# Format code
+fmt: (_cargo 'fmt')
+
+# Install crate
+install: (_cargo 'install' '-f' '--path' '.')
+
+# Instrument crate
+flamegraph *ARGS: (cargo 'flamegraph' ARGS)
+
+# Create new workspace crate (under crates/ directory)
+new NAME *ARGS:
+  {{cargo}} new {{ARGS}} --name {{workspace-prefix}}{{NAME}} crates/{{NAME}}
+
+@expand PACKAGE MODULE='':
+  CARGO_TARGET_DIR='target/expand' cargo expand -p {{PACKAGE}} {{cargo-features-flag}} {{cargo-target-flag}} {{MODULE}} | bat -l 'Rust'
+
+_cargo-asm PACKAGE *ARGS:
+  cargo asm --color -p {{PACKAGE}} {{ARGS}}
+
+asm PACKAGE *ARGS: (_cargo-asm PACKAGE '--intel' ARGS)
+mir PACKAGE *ARGS: (_cargo-asm PACKAGE '--mir' ARGS)
+llvm-ir PACKAGE *ARGS: (_cargo-asm PACKAGE '--llvm' ARGS)
+
+clean:
+  -rm -rf target
+
+clean-doc:
+  -rm -rf target/doc
+
+rebuild: clean build doc
+redoc: clean-doc doc
+
+import? 'Justfile.local'
+
+# vim: set ft=just :

@@ -1,0 +1,25 @@
+From d6fde691e397769fc04e23aac2aa6cf15f92ecba Mon Sep 17 00:00:00 2001
+From: KokaKiwi <kokakiwi+git@kokakiwi.net>
+Date: Mon, 13 May 2024 23:56:30 +0200
+Subject: [PATCH] Expose lib.ctp
+
+---
+ modules/global.nix | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/modules/global.nix b/modules/global.nix
+index 7e30dee..a685e93 100644
+--- a/modules/global.nix
++++ b/modules/global.nix
+@@ -46,4 +46,8 @@ in
+         description = "Port sources used across all options";
+       };
+   };
++
++  config.lib = {
++    ctp = catppuccinLib;
++  };
+ }
+-- 
+2.47.1
+

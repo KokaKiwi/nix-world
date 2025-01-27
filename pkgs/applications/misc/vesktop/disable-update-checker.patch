@@ -1,0 +1,25 @@
+diff --git a/src/main/index.ts b/src/main/index.ts
+index 2e0d6f7..309924b 100644
+--- a/src/main/index.ts
++++ b/src/main/index.ts
+@@ -7,7 +7,6 @@
+ import "./ipc";
+ 
+ import { app, BrowserWindow, nativeTheme } from "electron";
+-import { autoUpdater } from "electron-updater";
+ 
+ import { DATA_DIR } from "./constants";
+ import { createFirstLaunchTour } from "./firstLaunch";
+@@ -17,12 +16,6 @@ import { registerScreenShareHandler } from "./screenShare";
+ import { Settings, State } from "./settings";
+ import { isDeckGameMode } from "./utils/steamOS";
+ 
+-if (IS_DEV) {
+-    require("source-map-support").install();
+-} else {
+-    autoUpdater.checkForUpdatesAndNotify();
+-}
+-
+ // Make the Vencord files use our DATA_DIR
+ process.env.VENCORD_USER_DATA_DIR = DATA_DIR;
+ 

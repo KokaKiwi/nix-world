@@ -1,0 +1,6 @@
+{ ... }:
+{
+  programs.gajim = {
+    enable = true;
+  };
+}

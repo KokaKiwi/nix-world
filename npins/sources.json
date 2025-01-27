@@ -1,0 +1,179 @@
+{
+  "pins": {
+    "agenix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "ryantm",
+        "repo": "agenix"
+      },
+      "branch": "main",
+      "revision": "e600439ec4c273cf11e06fe4d9d906fb98fa097c",
+      "url": "https://github.com/ryantm/agenix/archive/e600439ec4c273cf11e06fe4d9d906fb98fa097c.tar.gz",
+      "hash": "006ngydiykjgqs85cl19h9klq8kaqm5zs0ng51dnwy7nzgqxzsdr"
+    },
+    "catppuccin": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "nix"
+      },
+      "branch": "main",
+      "revision": "06f0ea19334bcc8112e6d671fd53e61f9e3ad63a",
+      "url": "https://github.com/catppuccin/nix/archive/06f0ea19334bcc8112e6d671fd53e61f9e3ad63a.tar.gz",
+      "hash": "1b0sbs820807jzgka8gxfr05n9yrnpa0rqgpdmiqyk7wz5hlhh7j"
+    },
+    "declarative-cachix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "jonascarpay",
+        "repo": "declarative-cachix"
+      },
+      "branch": "master",
+      "revision": "800c308a85b964eb3447a3cb07e8190fb74dcf59",
+      "url": "https://github.com/jonascarpay/declarative-cachix/archive/800c308a85b964eb3447a3cb07e8190fb74dcf59.tar.gz",
+      "hash": "1ik6niiwv3a2i02w3pgacf8pmsylx0zv90rdkzq5gblmrlhgxli6"
+    },
+    "eza-themes": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "eza-community",
+        "repo": "eza-themes"
+      },
+      "branch": "main",
+      "revision": "a99a5f1bbb5fec2c0bfa945ec8e2aabcb6f24d71",
+      "url": "https://github.com/eza-community/eza-themes/archive/a99a5f1bbb5fec2c0bfa945ec8e2aabcb6f24d71.tar.gz",
+      "hash": "1zw18kdkfi7vvq5vxn0m6n8svj1b26idk6bsga3b69im0a7dprkp"
+    },
+    "fenix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "fenix"
+      },
+      "branch": "main",
+      "revision": "a77faba92a766d05ed815e3d88f3e0b4cb0731ff",
+      "url": "https://github.com/nix-community/fenix/archive/a77faba92a766d05ed815e3d88f3e0b4cb0731ff.tar.gz",
+      "hash": "0xwj24i02gzpk60sgy5vy2aqw0xm10v91bzngbxzim1lr5cv23c3"
+    },
+    "home-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "home-manager"
+      },
+      "branch": "master",
+      "revision": "e1ae908bcc30af792b0bb0a52e53b03d2577255e",
+      "url": "https://github.com/nix-community/home-manager/archive/e1ae908bcc30af792b0bb0a52e53b03d2577255e.tar.gz",
+      "hash": "1bwnmhb7brayfamljr4rl3ks07gs4awgx57zns6cd8dhc92c08y6"
+    },
+    "home-manager-24.05": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "home-manager"
+      },
+      "branch": "release-24.05",
+      "revision": "2f23fa308a7c067e52dfcc30a0758f47043ec176",
+      "url": "https://github.com/nix-community/home-manager/archive/2f23fa308a7c067e52dfcc30a0758f47043ec176.tar.gz",
+      "hash": "00wp0s9b5nm5rsbwpc1wzfrkyxxmqjwsc1kcibjdbfkh69arcpsn"
+    },
+    "home-manager-24.11": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "home-manager"
+      },
+      "branch": "release-24.11",
+      "revision": "bd65bc3cde04c16755955630b344bc9e35272c56",
+      "url": "https://github.com/nix-community/home-manager/archive/bd65bc3cde04c16755955630b344bc9e35272c56.tar.gz",
+      "hash": "15k41il0mvmwyv6jns4z8k6khhmb22jk5gpcqs1paym3l01g6abn"
+    },
+    "nix-vscode-extensions": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nix-vscode-extensions"
+      },
+      "branch": "master",
+      "revision": "81af90e45a052d0d2466d21319707b8a0eaff7d6",
+      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/81af90e45a052d0d2466d21319707b8a0eaff7d6.tar.gz",
+      "hash": "1ibx2y0h5b0567cci5d406193igxp7kpahwnb3n8r5n88h19xjx6"
+    },
+    "nixgl": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nixGL"
+      },
+      "branch": "main",
+      "revision": "310f8e49a149e4c9ea52f1adf70cdc768ec53f8a",
+      "url": "https://github.com/nix-community/nixGL/archive/310f8e49a149e4c9ea52f1adf70cdc768ec53f8a.tar.gz",
+      "hash": "1crnbv3mdx83xjwl2j63rwwl9qfgi2f1lr53zzjlby5lh50xjz4n"
+    },
+    "nixos-24.05": {
+      "type": "Channel",
+      "name": "nixos-24.05",
+      "url": "https://releases.nixos.org/nixos/24.05/nixos-24.05.7376.b134951a4c9f/nixexprs.tar.xz",
+      "hash": "1f8j7fh0nl4qmqlxn6lis8zf7dnckm6jri4rwmj0qm1qivhr58lv"
+    },
+    "nixos-24.11": {
+      "type": "Channel",
+      "name": "nixos-24.11",
+      "url": "https://releases.nixos.org/nixos/24.11/nixos-24.11.713719.4e96537f163f/nixexprs.tar.xz",
+      "hash": "0kr9k8ar0xlwl19rh01pnp00z03wzd69jj201sgsll36n64cr41w"
+    },
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixpkgs-unstable",
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre744509.88a55dffa4d4/nixexprs.tar.xz",
+      "hash": "031apspqfm8z4yczj8126chfc7mijnmnxzqg0inaz1dwi4pzwlbz"
+    },
+    "nur": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "NUR"
+      },
+      "branch": "master",
+      "revision": "8d3343193ef659770b68eedb6f8cdecd2017aa91",
+      "url": "https://github.com/nix-community/NUR/archive/8d3343193ef659770b68eedb6f8cdecd2017aa91.tar.gz",
+      "hash": "15jcdmyw3i96cg233ajvsp36ra97pib3cbr31r0l9yrnn2ykp1va"
+    },
+    "nur/kokakiwi": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "KokaKiwi",
+        "repo": "nur-packages"
+      },
+      "branch": "main",
+      "revision": "b40aedbcc18bccdf36071eb7391ba7777e4bb4b7",
+      "url": "https://github.com/KokaKiwi/nur-packages/archive/b40aedbcc18bccdf36071eb7391ba7777e4bb4b7.tar.gz",
+      "hash": "01apyzranhcq1ivkk94dh8q6f5515zzx2c2dj82sj8zr2zbr9z8m"
+    },
+    "system-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "numtide",
+        "repo": "system-manager"
+      },
+      "branch": "main",
+      "revision": "196586a97d2b9be12e0b8e646ac1ec4f213cc9cd",
+      "url": "https://github.com/numtide/system-manager/archive/196586a97d2b9be12e0b8e646ac1ec4f213cc9cd.tar.gz",
+      "hash": "03fm01g0acfhmssj8rc00hlxf1b1ik8bhqyqza9yikn746m84gyq"
+    }
+  },
+  "version": 3
+}

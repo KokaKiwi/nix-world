@@ -1,0 +1,6 @@
+leptos COMMAND *ARGS: (_cargo 'leptos' COMMAND ARGS)
+
+web-build *ARGS: (leptos 'build' ARGS)
+web-watch *ARGS: (leptos 'watch' ARGS)
+
+# vim: set ft=just :

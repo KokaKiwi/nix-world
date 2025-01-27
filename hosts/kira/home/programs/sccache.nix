@@ -1,0 +1,6 @@
+{ ... }:
+{
+  programs.sccache = {
+    enable = true;
+  };
+}

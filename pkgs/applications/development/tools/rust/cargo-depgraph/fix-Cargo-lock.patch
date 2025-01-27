@@ -1,0 +1,13 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index f6763b7..faedd16 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -67,7 +67,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "cargo-depgraph"
+-version = "1.5.0"
++version = "1.6.0"
+ dependencies = [
+  "anyhow",
+  "cargo_metadata",

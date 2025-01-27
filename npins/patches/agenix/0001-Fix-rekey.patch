@@ -1,0 +1,30 @@
+From daee10627b0c924c2561f901d1b6cadcd3fe2315 Mon Sep 17 00:00:00 2001
+From: KokaKiwi <kokakiwi+git@kokakiwi.net>
+Date: Sun, 28 Apr 2024 15:03:49 +0200
+Subject: [PATCH] Fix rekey
+
+---
+ pkgs/agenix.sh | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/pkgs/agenix.sh b/pkgs/agenix.sh
+index 3d0415e..e4db524 100644
+--- a/pkgs/agenix.sh
++++ b/pkgs/agenix.sh
+@@ -189,11 +189,13 @@ function edit {
+ }
+ 
+ function rekey {
++    _DEFAULT_DECRYPT=("${DEFAULT_DECRYPT[@]}")
+     FILES=$( (@nixInstantiate@ --json --eval -E "(let rules = import $RULES; in builtins.attrNames rules)"  | @jqBin@ -r .[]) || exit 1)
+ 
+     for FILE in $FILES
+     do
+         warn "rekeying $FILE..."
++        DEFAULT_DECRYPT=("${_DEFAULT_DECRYPT[@]}")
+         EDITOR=: edit "$FILE"
+         cleanup
+     done
+-- 
+2.44.0
+
