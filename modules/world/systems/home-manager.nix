@@ -41,7 +41,5 @@ in rec {
   activate = "${package}/activate";
 
   packages = module.config.home.packages;
-  pathsToCache = [
-    module.config.home.path
-  ];
+  pathsToCache = packages;
 }

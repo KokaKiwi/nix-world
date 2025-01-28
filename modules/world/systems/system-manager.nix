@@ -48,4 +48,5 @@ in rec {
   '';
 
   packages = module.config.environment.systemPackages;
+  pathsToCache = packages;
 }
