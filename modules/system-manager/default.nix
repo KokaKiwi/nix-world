@@ -6,6 +6,8 @@
 
     ./systemd.nix
 
+    ./config/nix.nix
+
     ./networking/firewall.nix
 
     ./security/dhparams.nix
@@ -17,5 +19,6 @@
     ./services/networking/yggdrasil.nix
     ./services/security/tor.nix
     ./services/security/vanta-agent.nix
+    ./services/system/nix-daemon.nix
   ];
 }
