@@ -8,7 +8,8 @@ in {
 
   config = lib.mkIf cfg.enable {
     nix.settings = {
-      build-users-group = lib.mkDefault "nixbld";
+      build-users-group = "nixbld";
+      trusted-users = [ "@nix-users" ];
     };
   };
 }
