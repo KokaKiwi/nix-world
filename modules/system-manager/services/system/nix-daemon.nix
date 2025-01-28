@@ -95,8 +95,10 @@ in {
     systemd.tmpfiles.packages = [ cfg.package ];
 
     systemd.services.nix-daemon = {
-      path = [
+      path = with pkgs; [
         cfg.package
+        util-linux
+        openssh gzip
       ];
       environment = cfg.envVars // {
         CURL_CA_BUNDLE = "/etc/ssl/certs/ca-certificates.crt";
