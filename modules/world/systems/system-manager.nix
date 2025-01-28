@@ -50,7 +50,9 @@ in rec {
     inherit (module) config options pkgs;
     inherit (module.pkgs) lib;
   };
-  inherit activate;
+  activate = pkgs.writeShellScript "activate" ''
+    ${package}/activate
+  '';
 
   packages = module.config.environment.systemPackages;
   pathsToCache = packages;
