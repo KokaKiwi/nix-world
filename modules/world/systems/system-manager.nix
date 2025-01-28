@@ -35,17 +35,22 @@ let
     };
   };
 
+  activate = pkgs.writeShellScript "activate" ''
+    HERE=$(realpath $(dirname "$0"))
+    sudo $HERE/bin/activate
+    sudo $HERE/bin/register-profile
+  '';
   entries = module.entries // {
+    inherit activate;
     etc = module.config.build.etc.staticEnv;
   };
 in rec {
   package = pkgs.linkFarm "system-manager" entries // {
-    inherit (module) config;
+    inherit module;
+    inherit (module) config options pkgs;
+    inherit (module.pkgs) lib;
   };
-  activate = pkgs.writeShellScript "activate" ''
-    sudo ${package}/bin/activate
-    sudo ${package}/bin/register-profile
-  '';
+  inherit activate;
 
   packages = module.config.environment.systemPackages;
   pathsToCache = packages;
