@@ -89,6 +89,8 @@ in {
   };
 
   config = with lib; mkIf cfg.enable {
+    environment.systemPackages = [ cfg.package ];
+
     systemd.packages = [ cfg.package ];
     systemd.tmpfiles.packages = [ cfg.package ];
 
