@@ -23,7 +23,7 @@ activate:
   result/activate
 dry-activate:
   DRY_RUN=1 result/activate
-switch: build activate
+switch MODULE='': (build MODULE) activate
 
 build-package ATTR:
   nom-build -A pkgs.{{ATTR}}
