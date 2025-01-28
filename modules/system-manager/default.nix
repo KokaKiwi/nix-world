@@ -6,6 +6,7 @@
 
     ./systemd.nix
 
+    ./config/networking.nix
     ./config/nix.nix
 
     ./networking/firewall.nix
