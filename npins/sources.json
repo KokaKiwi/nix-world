@@ -56,9 +56,9 @@
         "repo": "fenix"
       },
       "branch": "main",
-      "revision": "4745897c4574c0c92c58e7517b92e3a946555223",
-      "url": "https://github.com/nix-community/fenix/archive/4745897c4574c0c92c58e7517b92e3a946555223.tar.gz",
-      "hash": "1zmnbzh13hj70dbqw4l91q6jq1d1fcv7ffl0q9mfyv0sy24wm6p5"
+      "revision": "f94e521c1922784c377a2cace90aa89a6b8a1011",
+      "url": "https://github.com/nix-community/fenix/archive/f94e521c1922784c377a2cace90aa89a6b8a1011.tar.gz",
+      "hash": "1krkvjrrb2i17jpg9959kpwzw2w2g033m02283dayzyh4frnzbpf"
     },
     "home-manager": {
       "type": "Git",
@@ -68,9 +68,9 @@
         "repo": "home-manager"
       },
       "branch": "master",
-      "revision": "e1ae908bcc30af792b0bb0a52e53b03d2577255e",
-      "url": "https://github.com/nix-community/home-manager/archive/e1ae908bcc30af792b0bb0a52e53b03d2577255e.tar.gz",
-      "hash": "1bwnmhb7brayfamljr4rl3ks07gs4awgx57zns6cd8dhc92c08y6"
+      "revision": "0a64a209aa3c0e5ae528b9f25c3c5e9bb735dbb3",
+      "url": "https://github.com/nix-community/home-manager/archive/0a64a209aa3c0e5ae528b9f25c3c5e9bb735dbb3.tar.gz",
+      "hash": "1ag3ilx90rm1lbdr29i4gkdv24vpld5gf8nd0i42dmcdkyx1js4w"
     },
     "home-manager-24.05": {
       "type": "Git",
@@ -104,9 +104,9 @@
         "repo": "nix-vscode-extensions"
       },
       "branch": "master",
-      "revision": "2063542a934dd15fa21c6a60fb77bf93794187ea",
-      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/2063542a934dd15fa21c6a60fb77bf93794187ea.tar.gz",
-      "hash": "1gxsczix2qpkqnxgg080bvi2kackc5w44dgi88lprk3h7hn4f4vv"
+      "revision": "6d05434c798d94bf19b85a27e4f2249ab8bcd17f",
+      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/6d05434c798d94bf19b85a27e4f2249ab8bcd17f.tar.gz",
+      "hash": "134qij5a7a55ffmp761ksax9941nizh0jghxvw1c097lckcshhm0"
     },
     "nixgl": {
       "type": "Git",
@@ -135,8 +135,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre744509.88a55dffa4d4/nixexprs.tar.xz",
-      "hash": "031apspqfm8z4yczj8126chfc7mijnmnxzqg0inaz1dwi4pzwlbz"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre744748.f898cbfddfab/nixexprs.tar.xz",
+      "hash": "0zpdl5dcdki57a8kmmb9n7cd4pm8rsxzg7xsppn0gg13y2asyni5"
     },
     "nur": {
       "type": "Git",
@@ -146,9 +146,9 @@
         "repo": "NUR"
       },
       "branch": "master",
-      "revision": "560eb11fb5e82a6393915aa8514b6b5638e3afd6",
-      "url": "https://github.com/nix-community/NUR/archive/560eb11fb5e82a6393915aa8514b6b5638e3afd6.tar.gz",
-      "hash": "0v3i1j7n161ndyrpif2asv2imck19xygk6ghrc4al7v2kgcsjdf4"
+      "revision": "639cd48858d689fa728d4ef0094c980303c193e1",
+      "url": "https://github.com/nix-community/NUR/archive/639cd48858d689fa728d4ef0094c980303c193e1.tar.gz",
+      "hash": "08gppb1r23cs2q867k880zn0mcncghn4p82w49wghsap0sn1dmhb"
     },
     "nur/kokakiwi": {
       "type": "Git",
@@ -161,6 +161,18 @@
       "revision": "b40aedbcc18bccdf36071eb7391ba7777e4bb4b7",
       "url": "https://github.com/KokaKiwi/nur-packages/archive/b40aedbcc18bccdf36071eb7391ba7777e4bb4b7.tar.gz",
       "hash": "01apyzranhcq1ivkk94dh8q6f5515zzx2c2dj82sj8zr2zbr9z8m"
+    },
+    "srvos": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "srvos"
+      },
+      "branch": "main",
+      "revision": "6d69a63fcb3a9b213ebd3b8754e71d2691fe3fbf",
+      "url": "https://github.com/nix-community/srvos/archive/6d69a63fcb3a9b213ebd3b8754e71d2691fe3fbf.tar.gz",
+      "hash": "1wc3mlj4b3i9g86046pm9jwnklzxhnk1qlsmmgr5wh2plg8g6rxz"
     },
     "system-manager": {
       "type": "Git",
