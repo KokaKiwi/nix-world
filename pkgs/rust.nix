@@ -38,8 +38,8 @@ let
       hash = "sha256-s1RPtyvDGJaX/BisLT+ifVfuhDT1nZkZ1NcK8sbwELM=";
     };
     rust_1_84 = {
-      channel = "1.84.0";
-      hash = "sha256-lMLAupxng4Fd9F1oDw8gx+qA0RuF7ou7xhNU8wgs0PU=";
+      channel = "1.84.1";
+      hash = "sha256-vMlz0zHduoXtrlu0Kj1jEp71tYFXyymACW8L4jzrzNA=";
     };
 
     stable = rust_1_84;
