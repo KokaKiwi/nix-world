@@ -11,7 +11,7 @@
 , pkg-config
 , go
 , fontconfig
-, nerd-fonts
+, nerd-fonts ? null, nerdfonts
 , imagemagick
 , libicns
 , wayland-scanner
@@ -43,6 +43,10 @@
 }:
 let
   inherit (python3Packages) python;
+
+  nerd-symbols = if nerd-fonts != null
+    then nerd-fonts.symbols-only
+    else nerdfonts.override { fonts = ["NerdFontsSymbolsOnly"]; };
 in python3Packages.buildPythonApplication rec {
   pname = "kitty";
   version = "0.39.0";
@@ -83,7 +87,7 @@ in python3Packages.buildPythonApplication rec {
     pkg-config
     go
     fontconfig
-    nerd-fonts.symbols-only
+    nerd-symbols
 
     sphinx
     furo

@@ -9,7 +9,7 @@ in {
       modules = [
         ../modules/world
         {
-          inherit name;
+          name = lib.mkDefault name;
         }
         host
       ];

@@ -39,7 +39,7 @@ let
       };
 
       system = mkOption {
-        type = types.submodule ({ config, ... }: {
+        type = types.submodule {
           freeformType = types.attrs;
 
           options = {
@@ -49,20 +49,19 @@ let
             };
             activate = mkOption {
               type = types.path;
-              default = "${config.package}/${config.package.activationPath}";
+              readOnly = true;
             };
 
             packages = mkOption {
               type = types.listOf types.package;
               default = [ ];
             };
-
             pathsToCache = mkOption {
               type = types.listOf types.path;
               default = [ ];
             };
           };
-        });
+        };
         readOnly = true;
         internal = true;
       };

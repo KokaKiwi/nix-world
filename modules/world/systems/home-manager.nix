@@ -1,4 +1,5 @@
 {
+  config,
   nixpkgs,
   modulesPath,
   sources,
@@ -8,7 +9,11 @@
   ...
 }:
 let
-  module = import "${sources.home-manager}/modules" {
+  home-manager = if config.nixpkgs.version == "unstable"
+    then sources.home-manager
+    else sources."home-manager-${config.nixpkgs.version}";
+
+  module = import "${home-manager}/modules" {
     pkgs = nixpkgs;
     check = true;
 

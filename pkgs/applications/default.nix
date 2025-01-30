@@ -151,9 +151,7 @@ in {
   tmux = callPackage ./tools/misc/tmux { };
   trunk = callPackage ./development/tools/trunk { };
   usage = callPackage ./tools/usage { };
-  uv = callPackage ./development/tools/uv {
-    inherit (rustTools.stable) rustPlatform rustc cargo;
-  };
+  uv = callPackage ./development/tools/uv { };
   vesktop = callPackage ./misc/vesktop { };
   viceroy = callPackage ./development/tools/viceroy { };
   wasm-bindgen-cli = callPackage ./development/tools/wasm-bindgen-cli { };

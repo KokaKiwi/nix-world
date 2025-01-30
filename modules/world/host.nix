@@ -15,9 +15,6 @@ in {
     };
 
     nixpkgs = {
-      path = mkOption {
-        type = types.path;
-      };
       config = mkOption {
         type = types.attrs;
         default = { };
@@ -27,9 +24,12 @@ in {
         default = [ ];
       };
 
-      channel = mkOption {
-        type = types.enum (nixosChannels ++ [ "nixpkgs-unstable" ]);
-        default = "nixpkgs-unstable";
+      version = mkOption {
+        type = types.enum ((map (lib.removePrefix "nixos-") nixosChannels) ++ [ "unstable" ]);
+        default = "unstable";
+      };
+      path = mkOption {
+        type = types.path;
       };
     };
 
@@ -41,9 +41,9 @@ in {
 
   config = {
     nixpkgs.path = let
-      path = if config.nixpkgs.channel == "nixpkgs-unstable"
+      path = if config.nixpkgs.version == "unstable"
       then sources.nixpkgs
-      else sources.${config.nixpkgs.channel};
+      else sources."nixos-${config.nixpkgs.version}";
     in lib.mkDefault path;
 
     nixpkgs.overlays = [

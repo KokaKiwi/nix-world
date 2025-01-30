@@ -4,7 +4,7 @@ let
 
   nodeinfo = {
     inherit (config) name;
-    inherit (config.nixpkgs) channel;
+    inherit (config.nixpkgs) version;
   };
 
   activateScript = pkgs.writeShellScript "activate-${config.name}"
