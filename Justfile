@@ -7,12 +7,12 @@ alias upk := update-kiwi-package
 
 _default:
 
-_run-shell COMMAND *ARGS:
-  nix-shell {{ARGS}} --run '{{COMMAND}}'
+_run-shell NAME COMMAND *ARGS:
+  nix-shell {{ARGS}} -A {{NAME}} --run '{{COMMAND}}'
 
-run COMMAND *ARGS: (_run-shell COMMAND ARGS)
-check: (_run-shell 'checkUpdates')
-upload-cache: (_run-shell 'uploadCache')
+run NAME COMMAND *ARGS: (_run-shell NAME COMMAND ARGS)
+check: (_run-shell 'check' 'checkUpdates')
+upload-cache: (_run-shell 'upload-cache' 'uploadCache')
 
 build MODULE='':
   nom-build -A hosts.{{host}}{{ if MODULE != '' { '.' + MODULE } else { '' } }}

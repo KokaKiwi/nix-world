@@ -2,20 +2,36 @@
 let
   world = import ./. { };
 
-  inherit (world) pkgs;
+  inherit (world) pkgs lib;
 
   cacheUploader = import ./scripts/cache-uploader.nix world;
   updateChecker = import ./scripts/update-checker.nix world;
-in pkgs.mkShell {
-  name = "world-shell";
 
-  shellHook = ''
-    uploadCache() {
-      ${cacheUploader}
-    }
+  mkShells = {
+    shells,
+    ...
+  }@args: let
+    args' = lib.removeAttrs args [ "shells" ];
+  in lib.mapAttrs (name: shellArgs: pkgs.mkShell (args' // shellArgs // {
+    name = "${name}-shell";
+  })) shells;
 
-    checkUpdates() {
-      ${updateChecker}
-    }
-  '';
-}
+  shells = mkShells {
+    shells.default = { };
+
+    shells.check = {
+      shellHook = ''
+        checkUpdates() {
+          ${updateChecker}
+        }
+      '';
+    };
+    shells.upload-cache = {
+      shellHook = ''
+        uploadCache() {
+          ${cacheUploader}
+        }
+      '';
+    };
+  };
+in shells.default // shells
