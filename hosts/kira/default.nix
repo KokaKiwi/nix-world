@@ -6,20 +6,14 @@
     allowUnfree = true;
   };
 
-  systems = {
-    home = {
-      builder = "home-manager";
+  home = {
+    configuration = ./home/configuration.nix;
 
-      configuration = ./home/configuration.nix;
-
-      extraSpecialArgs = {
-        inherit secretsPath;
-      };
+    extraSpecialArgs = {
+      inherit secretsPath;
     };
-    system = {
-      builder = "system-manager";
-
-      configuration = ./system/configuration.nix;
-    };
+  };
+  system = {
+    configuration = ./system/configuration.nix;
   };
 }

@@ -15,7 +15,10 @@ in {
       ];
 
       specialArgs = {
-        inherit pkgs lib sources;
+        inherit pkgs sources;
+        lib = lib.extend (self: super: {
+          world = import ./world self;
+        });
         hosts = hostModules;
 
         modulesPath = ../modules;

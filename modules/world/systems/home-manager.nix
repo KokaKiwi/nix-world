@@ -1,35 +1,26 @@
-{
-  config,
-  nixpkgs,
-  modulesPath,
-  sources,
-
-  configuration,
-  extraSpecialArgs ? { },
-  ...
-}:
+{ config, lib, sources, modulesPath, ... }:
 let
-  home-manager = if config.nixpkgs.version == "unstable"
-    then sources.home-manager
-    else sources."home-manager-${config.nixpkgs.version}";
+  cfg = config.home;
 
-  module = import "${home-manager}/modules" {
-    pkgs = nixpkgs;
+  inherit (config) nixpkgs;
+
+  module = import "${cfg.source}/modules" {
+    inherit (nixpkgs) pkgs;
     check = true;
 
     configuration = { lib, ... }: {
       imports = [
         (modulesPath + "/home-manager")
-        configuration
+        cfg.configuration
       ]
-      ++ nixpkgs.nur.repos.kokakiwi.modules.home-manager.all-modules;
+      ++ nixpkgs.pkgs.nur.repos.kokakiwi.modules.home-manager.all-modules;
 
       _module.args = {
-        pkgs = lib.mkForce nixpkgs;
+        pkgs = lib.mkForce nixpkgs.pkgs;
       };
     };
 
-    extraSpecialArgs = extraSpecialArgs // {
+    extraSpecialArgs = cfg.extraSpecialArgs // {
       inherit sources;
     };
   };
@@ -39,12 +30,37 @@ let
     inherit (module) config options pkgs;
     inherit (module.pkgs) lib;
   } // module.config.env;
-in rec {
-  package = module.activationPackage // env // {
-    inherit env;
-  };
-  activate = "${package}/activate";
+in {
+  options.home = with lib; {
+    configuration = mkOption {
+      type = types.nullOr world.types.nixConfiguration;
+      default = null;
+    };
+    extraSpecialArgs = mkOption {
+      type = types.attrs;
+      default = { };
+    };
 
-  packages = module.config.home.packages;
-  pathsToCache = packages;
+    source = mkOption {
+      type = types.anything;
+      readOnly = true;
+      internal = true;
+    };
+  };
+
+  config = {
+    home.source = if config.nixpkgs.version == "unstable"
+      then sources.home-manager
+      else sources."home-manager-${config.nixpkgs.version}";
+
+    systems.home = lib.mkIf (cfg.configuration != null) rec {
+      package = module.activationPackage // env // {
+        inherit env;
+      };
+      activate = "${package}/activate";
+
+      packages = module.config.home.packages;
+      pathsToCache = packages;
+    };
+  };
 }

@@ -1,36 +1,30 @@
-{
-  config,
-  pkgs,
-  nixpkgs,
-  modulesPath,
-  sources,
-
-  configuration,
-  extraSpecialArgs ? { },
-  ...
-}:
+{ config, pkgs, lib, sources, modulesPath, ... }:
 let
+  cfg = config.system;
+
+  inherit (config) nixpkgs;
+
   system-manager = import sources.system-manager {
-    nixpkgs = config.nixpkgs.path;
-    pkgs = nixpkgs;
+    nixpkgs = nixpkgs.path;
+    pkgs = nixpkgs.pkgs;
   };
 
   module = system-manager.lib.makeSystemConfig {
     modules = [
       (modulesPath + "/system-manager")
-      configuration
+      cfg.configuration
       ({ lib, ... }: {
-        nixpkgs.hostPlatform = nixpkgs.hostPlatform.system;
+        nixpkgs.hostPlatform = nixpkgs.pkgs.hostPlatform.system;
         system-manager.allowAnyDistro = true;
 
         _module.args = {
-          pkgs = lib.mkForce nixpkgs;
+          pkgs = lib.mkForce nixpkgs.pkgs;
         };
       })
     ];
 
-    extraSpecialArgs = extraSpecialArgs // {
-      inherit (nixpkgs) nur;
+    extraSpecialArgs = cfg.extraSpecialArgs // {
+      inherit (nixpkgs.pkgs) nur;
       inherit sources;
     };
   };
@@ -44,16 +38,31 @@ let
     inherit activate;
     etc = module.config.build.etc.staticEnv;
   };
-in rec {
-  package = pkgs.linkFarm "system-manager" entries // {
-    inherit module;
-    inherit (module) config options pkgs;
-    inherit (module.pkgs) lib;
+in {
+  options.system = with lib; {
+    configuration = mkOption {
+      type = types.nullOr world.types.nixConfiguration;
+      default = null;
+    };
+    extraSpecialArgs = mkOption {
+      type = types.attrs;
+      default = { };
+    };
   };
-  activate = pkgs.writeShellScript "activate" ''
-    ${package}/activate
-  '';
 
-  packages = module.config.environment.systemPackages;
-  pathsToCache = packages;
+  config = {
+    systems.system = lib.mkIf (cfg.configuration != null) rec {
+      package = pkgs.linkFarm "system-manager" entries // {
+        inherit module;
+        inherit (module) config options pkgs;
+        inherit (module.pkgs) lib;
+      };
+      activate = pkgs.writeShellScript "activate" ''
+        ${package}/activate
+      '';
+
+      packages = module.config.environment.systemPackages;
+      pathsToCache = packages;
+    };
+  };
 }
