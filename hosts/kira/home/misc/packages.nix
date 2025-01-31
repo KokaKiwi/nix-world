@@ -55,6 +55,7 @@ in {
     nitrokey-app2 pynitrokey wasm-bindgen-cli
     devenv pwgen pwgen-secure
     catppuccin-catwalk catppuccin-whiskers ssh-to-age ssh-to-pgp
+    sops
     nixgl.nixGLIntel
 
     # Data
