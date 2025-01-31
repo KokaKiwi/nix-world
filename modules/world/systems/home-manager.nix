@@ -13,6 +13,11 @@ let
         (modulesPath + "/home-manager")
         cfg.configuration
       ]
+      ++ lib.optional (config.secrets.file != null) {
+        imports = [
+          "${sources.sops-nix}/modules/home-manager/sops.nix"
+        ];
+      }
       ++ nixpkgs.pkgs.nur.repos.kokakiwi.modules.home-manager.all-modules;
 
       _module.args = {

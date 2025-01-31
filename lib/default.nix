@@ -19,6 +19,7 @@ in {
         lib = lib.extend (self: super: {
           world = import ./world self;
         });
+
         hosts = hostModules;
 
         modulesPath = ../modules;

@@ -177,6 +177,18 @@
       "url": "https://github.com/KokaKiwi/nur-packages/archive/b40aedbcc18bccdf36071eb7391ba7777e4bb4b7.tar.gz",
       "hash": "01apyzranhcq1ivkk94dh8q6f5515zzx2c2dj82sj8zr2zbr9z8m"
     },
+    "sops-nix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Mic92",
+        "repo": "sops-nix"
+      },
+      "branch": "master",
+      "revision": "4c1251904d8a08c86ac6bc0d72cc09975e89aef7",
+      "url": "https://github.com/Mic92/sops-nix/archive/4c1251904d8a08c86ac6bc0d72cc09975e89aef7.tar.gz",
+      "hash": "0vfzkxkv5i004mpd8f5n6sg43ny298pwjs29b686jahwrwjihk62"
+    },
     "srvos": {
       "type": "Git",
       "repository": {

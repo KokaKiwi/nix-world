@@ -28,6 +28,7 @@ in {
     ./home-manager.nix
     ./system-manager.nix
 
+    ./nixos.nix
   ];
 
   options = with lib; {
