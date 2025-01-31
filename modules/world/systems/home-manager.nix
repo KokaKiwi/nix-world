@@ -17,6 +17,8 @@ let
         imports = [
           "${sources.sops-nix}/modules/home-manager/sops.nix"
         ];
+
+        sops.defaultSopsFile = config.secrets.file;
       }
       ++ nixpkgs.pkgs.nur.repos.kokakiwi.modules.home-manager.all-modules;
 

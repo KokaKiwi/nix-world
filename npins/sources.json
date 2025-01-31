@@ -1,17 +1,5 @@
 {
   "pins": {
-    "agenix": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "ryantm",
-        "repo": "agenix"
-      },
-      "branch": "main",
-      "revision": "e600439ec4c273cf11e06fe4d9d906fb98fa097c",
-      "url": "https://github.com/ryantm/agenix/archive/e600439ec4c273cf11e06fe4d9d906fb98fa097c.tar.gz",
-      "hash": "006ngydiykjgqs85cl19h9klq8kaqm5zs0ng51dnwy7nzgqxzsdr"
-    },
     "catppuccin": {
       "type": "Git",
       "repository": {

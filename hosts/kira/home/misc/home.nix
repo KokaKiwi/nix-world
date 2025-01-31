@@ -8,7 +8,7 @@
     ];
     JAVA_HOME = "/usr/lib/jvm/default";
     GHCUP_USE_XDG_DIRS = "true";
-    BW_SESSION = "$(cat \"${config.age.secrets.bitwarden-session-key.path}\" | tr -d \\n)";
+    BW_SESSION = "$(cat \"${config.sops.secrets.bitwarden-session-key.path}\" | tr -d \\n)";
   };
 
   home.sessionPath = [

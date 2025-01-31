@@ -1,38 +1,22 @@
-{ config, pkgs, lib, sources, secretsPath, ... }:
-with lib;
-let
-  entries = import "${secretsPath}/secrets.nix";
-  secrets = mapAttrs' (name: { path ? null, ... }@entry:
-    let
-      name' = removeSuffix ".age" name;
-      entry' = removeAttrs entry [ "publicKeys" "path" ];
-      path' = if builtins.isFunction path
-        then entry.path config
-        else entry.path;
-    in nameValuePair name' (entry' // {
-      file = lib.path.append secretsPath name;
-      path = mkIf (path != null) path';
-    })) entries;
+{ config, ... }:
+{
+  sops.age.keyFile = "${config.xdg.dataHome}/rage/kira.key";
 
-  agenix = pkgs.agenix.override {
-    ageBin = "${pkgs.rage}/bin/rage";
-  };
-in {
-  imports = [
-    "${sources.agenix}/modules/age-home.nix"
-  ];
+  sops.secrets = {
+    bitwarden-session-key = { };
 
-  home.packages = [ agenix ];
+    cargo-credentials = {
+      path = "${config.home.homeDirectory}/.cargo/credentials";
+    };
 
-  age.package = pkgs.rage;
-
-  age.identityPaths = [
-    "${config.xdg.dataHome}/rage/kira.key"
-  ];
-
-  age.secrets = secrets;
-
-  _module.args = {
-    secrets = config.age.secrets;
+    booru-config = {
+      path = "${config.xdg.configHome}/booru/config.toml";
+    };
+    hub-config = {
+      path = "${config.xdg.configHome}/hub";
+    };
+    nvchecker-keyfile = {
+      path = "${config.xdg.configHome}/nvchecker/keyfile.toml";
+    };
   };
 }
