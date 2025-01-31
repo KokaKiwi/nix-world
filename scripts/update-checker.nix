@@ -23,7 +23,7 @@ pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
     ];
 
     hostPackages = lib.flatten (lib.mapAttrsToList (_: host:
-      lib.flatten (lib.mapAttrsToList (_: { system, ... }:
+      lib.flatten (lib.mapAttrsToList (_: system:
         system.packages
       ) host.config.systems)
     ) hosts.hosts);
