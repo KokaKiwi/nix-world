@@ -54,7 +54,7 @@ in {
     just sqlx-cli sea-orm-cli sqls
     nitrokey-app2 pynitrokey wasm-bindgen-cli
     devenv pwgen pwgen-secure
-    catppuccin-catwalk catppuccin-whiskers
+    catppuccin-catwalk catppuccin-whiskers ssh-to-age ssh-to-pgp
     nixgl.nixGLIntel
 
     # Data
