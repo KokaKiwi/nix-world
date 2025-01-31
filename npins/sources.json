@@ -200,6 +200,18 @@
       "revision": "196586a97d2b9be12e0b8e646ac1ec4f213cc9cd",
       "url": "https://github.com/numtide/system-manager/archive/196586a97d2b9be12e0b8e646ac1ec4f213cc9cd.tar.gz",
       "hash": "03fm01g0acfhmssj8rc00hlxf1b1ik8bhqyqza9yikn746m84gyq"
+    },
+    "vpsadminos": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "vpsfreecz",
+        "repo": "vpsadminos"
+      },
+      "branch": "prod-25.01",
+      "revision": "146a6a90b71d471855836a539dcaadb9420d9ee8",
+      "url": "https://github.com/vpsfreecz/vpsadminos/archive/146a6a90b71d471855836a539dcaadb9420d9ee8.tar.gz",
+      "hash": "1bq0x13ga8dh08zaw1y0amhdk86zbf4rdgcxx22ykwls7hd0qfks"
     }
   },
   "version": 3

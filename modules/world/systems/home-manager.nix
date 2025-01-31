@@ -1,4 +1,4 @@
-{ config, lib, sources, modulesPath, ... }:
+{ config, lib, hosts, sources, modulesPath, ... }:
 let
   cfg = config.home;
 
@@ -28,7 +28,7 @@ let
     };
 
     extraSpecialArgs = cfg.extraSpecialArgs // {
-      inherit sources;
+      inherit hosts sources;
     };
   };
 

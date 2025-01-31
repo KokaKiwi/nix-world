@@ -3,7 +3,6 @@
   imports = [
     ./home-manager
 
-    ./misc/deployment.nix
     ./misc/secrets.nix
 
     ./networking/openssh.nix

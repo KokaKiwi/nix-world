@@ -1,0 +1,4 @@
+_default:
+
+system-profile CMD *ARGS:
+  nix profile {{CMD}} --profile /nix/var/nix/profiles/system {{ARGS}}

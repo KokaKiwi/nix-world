@@ -1,4 +1,4 @@
-{ config, pkgs, lib, sources, modulesPath, ... }:
+{ config, pkgs, lib, hosts, sources, modulesPath, ... }:
 let
   cfg = config.nixos;
 
@@ -19,9 +19,12 @@ let
       imports = [ "${sources.sops-nix}/modules/sops" ];
 
       sops.defaultSopsFile = config.secrets.file;
-    };
+    }
+    ++ nixpkgs.pkgs.nur.repos.kokakiwi.modules.nixos.all-modules;
 
     specialArgs = {
+      inherit hosts sources;
+
       modulesPath = "${nixpkgs.path}/nixos/modules";
     }
     // lib.optionalAttrs cfg.integrations.srvos {
@@ -30,24 +33,22 @@ let
     // cfg.extraSpecialArgs;
   };
 
-  inherit (module.config) deployment;
-
   scripts = let
     env = [
-      "NIX_SSHOPTS=${lib.escapeShellArg (toString deployment.sshOptions)}"
+      "NIX_SSHOPTS=${lib.escapeShellArg (toString cfg.deployment.sshOptions)}"
     ];
 
     pushCommand = env ++ [
       "nix-copy-closure"
       "--to" "--gzip"
-      "${deployment.targetUser}@${deployment.targetHost}"
+      "${cfg.deployment.targetUser}@${cfg.deployment.targetHost}"
     ];
     sshCommand = env ++ [ "ssh" "-t" ]
-      ++ map lib.escapeShellArg deployment.sshOptions
-      ++ [ "${deployment.targetUser}@${deployment.targetHost}" "--" ];
-    switchCommand = sshCommand ++ [
-      "${module.config.system.build.toplevel}/bin/switch-to-configuration"
-    ];
+      ++ map lib.escapeShellArg cfg.deployment.sshOptions
+      ++ [ "${cfg.deployment.targetUser}@${cfg.deployment.targetHost}" "--" ];
+    switchCommand = sshCommand
+      ++ lib.optionals cfg.deployment.useSudo [ "sudo" "-H" "--" ]
+      ++ [ "${module.config.system.build.toplevel}/bin/switch-to-configuration" ];
 
     mkScripts = lib.mapAttrs (scriptName: text:
       pkgs.writeShellScript "${config.name}-nixos-${scriptName}" text
@@ -55,7 +56,6 @@ let
   in mkScripts {
     activate = ''
       ${scripts.push}
-      ${scripts.upload-keys}
       ${toString switchCommand} "$@"
     '';
     dry-activate = ''
@@ -69,9 +69,6 @@ let
     check = ''
       ${scripts.push}
       ${toString switchCommand} check
-    '';
-
-    upload-keys = ''
     '';
 
     push = ''
@@ -111,6 +108,31 @@ in {
     in {
       home-manager = mkIntegrationOption "home-manager";
       srvos = mkIntegrationOption "srvos";
+    };
+
+    deployment = {
+      targetHost = mkOption {
+        type = types.str;
+        default = config.name;
+      };
+      targetPort = mkOption {
+        type = types.nullOr types.port;
+        default = null;
+      };
+      targetUser = mkOption {
+        type = types.str;
+        default = "root";
+      };
+
+      useSudo = mkOption {
+        type = types.bool;
+        default = cfg.deployment.targetUser != "root";
+      };
+
+      sshOptions = mkOption {
+        type = types.listOf types.str;
+        default = [ ];
+      };
     };
   };
 

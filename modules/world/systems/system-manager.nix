@@ -1,4 +1,4 @@
-{ config, pkgs, lib, sources, modulesPath, ... }:
+{ config, pkgs, lib, hosts, sources, modulesPath, ... }:
 let
   cfg = config.system;
 
@@ -25,7 +25,7 @@ let
 
     extraSpecialArgs = cfg.extraSpecialArgs // {
       inherit (nixpkgs.pkgs) nur;
-      inherit sources;
+      inherit hosts sources;
     };
   };
 

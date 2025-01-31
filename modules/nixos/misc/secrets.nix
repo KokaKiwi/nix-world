@@ -38,7 +38,11 @@ in {
     sops.secrets = lib.mapAttrs secrets.define config.secrets;
 
     lib.secrets = rec {
-      define = name: keyConfig: keyConfig;
+      define = name: keyConfig: let
+        keyConfig' = lib.removeAttrs keyConfig [ "user" ];
+      in keyConfig' // {
+        owner = keyConfig.user or null;
+      };
 
       get = name: config.sops.secrets.${name};
       path = name: (get name).path;
