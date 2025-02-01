@@ -1,9 +1,5 @@
 { config, pkgs, lib, sources, ... }:
 {
-  imports = [
-    "${sources.declarative-cachix}/home-manager.nix"
-  ];
-
   home.packages = [
     config.nix.package
   ];

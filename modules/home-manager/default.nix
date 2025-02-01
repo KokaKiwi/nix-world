@@ -1,5 +1,9 @@
+{ sources, ... }:
 {
   imports = [
+    "${sources.catppuccin}/modules/home-manager"
+    "${sources.declarative-cachix}/home-manager.nix"
+
     ./lib/package.nix
     ./lib/python.nix
 

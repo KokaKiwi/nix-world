@@ -8,13 +8,33 @@ let
     modules = [
       (modulesPath + "/nixos")
       cfg.configuration
-      ({ lib, ... }: {
+      {
         _module.args = {
           pkgs = lib.mkForce nixpkgs.pkgs;
         };
-      })
+      }
     ]
-    ++ lib.optional cfg.integrations.home-manager "${home.source}/nixos"
+    ++ lib.optionals cfg.integrations.home-manager [
+      "${home.source}/nixos"
+      {
+        home-manager = {
+          sharedModules = [
+            (modulesPath + "/home-manager")
+          ]
+          ++ lib.optionals (config.secrets.file != null) [
+            "${sources.sops-nix}/modules/home-manager/sops.nix"
+            {
+              sops.defaultSopsFile = config.secrets.file;
+            }
+          ]
+          ++ nixpkgs.pkgs.nur.repos.kokakiwi.modules.home-manager.all-modules;
+
+          extraSpecialArgs = cfg.extraSpecialArgs // {
+            inherit hosts sources;
+          };
+        };
+      }
+    ]
     ++ lib.optional (config.secrets.file != null) {
       imports = [ "${sources.sops-nix}/modules/sops" ];
 
