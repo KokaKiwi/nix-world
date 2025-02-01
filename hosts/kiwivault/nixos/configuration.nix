@@ -5,7 +5,6 @@
 
     srvos.common
     srvos.mixins-nginx
-    srvos.mixins-systemd-boot
 
     ./hardware
     ./networking
@@ -19,11 +18,11 @@
       enable = true;
       editor = false;
 
-      configurationLimit = 10;
+      configurationLimit = 5;
 
       memtest86.enable = true;
     };
-    efi.canTouchEfiVariables = true;
+    # efi.canTouchEfiVariables = true;
   };
 
   nix = {

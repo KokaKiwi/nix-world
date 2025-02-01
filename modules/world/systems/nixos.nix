@@ -56,15 +56,17 @@ let
   in mkScripts {
     activate = ''
       ${scripts.push}
-      ${toString switchCommand} "$@"
+      ${scripts.register-profile}
+      ${toString switchCommand} switch
+    '';
+    boot = ''
+      ${scripts.push}
+      ${scripts.register-profile}
+      ${toString switchCommand} boot
     '';
     dry-activate = ''
       ${scripts.push}
       ${toString switchCommand} dry-activate
-    '';
-    boot = ''
-      ${scripts.push}
-      ${toString switchCommand} boot
     '';
     check = ''
       ${scripts.push}
@@ -73,6 +75,9 @@ let
 
     push = ''
       ${toString pushCommand} ${module.config.system.build.toplevel}
+    '';
+    register-profile = ''
+      ${toString sshCommand} nix-env --profile /nix/var/nix/profiles/system --set ${module.config.system.build.toplevel}
     '';
   };
 

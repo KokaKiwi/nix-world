@@ -1,4 +1,4 @@
-{ pkgs, sources, ... }:
+{ pkgs, lib, sources, ... }:
 {
   imports = [
     ../../_shared
@@ -13,7 +13,8 @@
     ./programs/neovim.nix
 
     ./services/openssh.nix
-  ];
+  ]
+  ++ lib.optional (lib.pathExists ./private) ./private/configuration.nix;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "root" "nixos" ];
