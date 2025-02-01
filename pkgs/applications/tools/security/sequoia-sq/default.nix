@@ -1,5 +1,4 @@
-{ lib, stdenv
-, darwin
+{ lib
 
 , fetchFromGitLab
 
@@ -20,7 +19,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitLab {
     owner = "sequoia-pgp";
     repo = "sequoia-sq";
-    rev = "v${version}";
+    tag = "v${version}";
     hash = "sha256-8vOlgqFt9kMTG8ENW9I24YNsrKdhwFnhvF3srdpm/zY=";
   };
 
@@ -33,24 +32,18 @@ rustPlatform.buildRustPackage rec {
     installShellFiles
   ];
 
-  buildInputs =
-    [
-      openssl
-      sqlite
-      nettle
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isDarwin (
-      with darwin.apple_sdk.frameworks;
-      [
-        Security
-        SystemConfiguration
-      ]
-    );
-
-  checkFlags = [
-    # https://gitlab.com/sequoia-pgp/sequoia-sq/-/issues/297
-    "--skip=sq_autocrypt_import"
+  buildInputs = [
+    openssl
+    sqlite
+    nettle
   ];
+
+  checkFlags = let
+    skipTests = [
+      # Requires network
+      "cli::download::sq_download"
+    ];
+  in map (testName: "--skip=${testName}") skipTests;
 
   # Needed for tests to be able to create a ~/.local/share/sequoia directory
   preCheck = ''
