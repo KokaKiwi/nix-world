@@ -15,16 +15,16 @@
 , openssl
 }: rustPlatform.buildRustPackage rec {
   pname = "mise";
-  version = "2025.1.17";
+  version = "2025.2.0";
 
   src = fetchFromGitHub {
     owner = "jdx";
     repo = "mise";
     tag = "v${version}";
-    hash = "sha256-KX7YOkzvOR+I0M48uXcjMXtVu7Z2B6qBHQV3exA3zU0=";
+    hash = "sha256-mZZBazE8QCaz3osbLoeaIHa7tsGji6B4UkaMlKAvF0M=";
   };
 
-  cargoHash = "sha256-Wn+IM6PQd1hOqoc/+bJo3paX6VP0bpubfT1S9yDc50c=";
+  cargoHash = "sha256-ptkzkzOl2gd67GYlm25FNEDRACIeIptTwN3kcHyxtw0=";
 
   nativeBuildInputs = [
     addUsageCompletion
