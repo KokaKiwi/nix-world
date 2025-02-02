@@ -59,9 +59,9 @@
         "repo": "fenix"
       },
       "branch": "main",
-      "revision": "de3ea31eb651b663449361f77d9c1e8835290470",
-      "url": "https://github.com/nix-community/fenix/archive/de3ea31eb651b663449361f77d9c1e8835290470.tar.gz",
-      "hash": "0navsp4057kf14jz2r4vqgnbprkpsk13xmkg1b29m0laxw1z2bac"
+      "revision": "1936bb37b1d8597273e3611873dc09dd61b09818",
+      "url": "https://github.com/nix-community/fenix/archive/1936bb37b1d8597273e3611873dc09dd61b09818.tar.gz",
+      "hash": "0gf14mjvk8ni8rqsfddvv00kmyyq3r5nlv362a29ww5xp8bp8p2b"
     },
     "home-manager": {
       "type": "Git",
@@ -71,9 +71,9 @@
         "repo": "home-manager"
       },
       "branch": "master",
-      "revision": "801ddd8693481866c2cfb1efd44ddbae778ea572",
-      "url": "https://github.com/nix-community/home-manager/archive/801ddd8693481866c2cfb1efd44ddbae778ea572.tar.gz",
-      "hash": "09hj98831m5ihrgr5dp54an06wlicwrib4p4m7imj3k1cdmm4mws"
+      "revision": "18fa9f323d8adbb0b7b8b98a8488db308210ed93",
+      "url": "https://github.com/nix-community/home-manager/archive/18fa9f323d8adbb0b7b8b98a8488db308210ed93.tar.gz",
+      "hash": "0j56s38y0yzy3pw7qia1n9zkmmn9nkb9mpklj2mc30k5l11fs170"
     },
     "home-manager-24.05": {
       "type": "Git",
@@ -107,9 +107,9 @@
         "repo": "nix-vscode-extensions"
       },
       "branch": "master",
-      "revision": "e26741603fb047295c7015c93746b75601c8c490",
-      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/e26741603fb047295c7015c93746b75601c8c490.tar.gz",
-      "hash": "0i3xjkghx5prywsgl103d7a54n9kypd1v28pmvnm8p1k5mfc6893"
+      "revision": "66dd0a10ed193f204a7e0f9853bdc21f94dd838f",
+      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/66dd0a10ed193f204a7e0f9853bdc21f94dd838f.tar.gz",
+      "hash": "0p6af2flfx4hd9s7j42iim0j5ic38sdgp8yifn2bkg4pz5z26yjn"
     },
     "nixgl": {
       "type": "Git",
