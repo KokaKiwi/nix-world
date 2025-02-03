@@ -8,4 +8,8 @@
     ./webserver.nix
     ./yggdrasil.nix
   ];
+
+  services = {
+    uptimed.enable = true;
+  };
 }

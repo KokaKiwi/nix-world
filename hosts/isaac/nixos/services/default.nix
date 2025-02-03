@@ -8,4 +8,8 @@
     ./prometheus-exporters.nix
     ./webserver.nix
   ];
+
+  services = {
+    uptimed.enable = true;
+  };
 }

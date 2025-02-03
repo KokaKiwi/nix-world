@@ -21,5 +21,6 @@
     ./services/security/tor.nix
     ./services/security/vanta-agent.nix
     ./services/system/nix-daemon.nix
+    ./services/system/uptimed.nix
   ];
 }
