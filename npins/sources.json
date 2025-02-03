@@ -59,9 +59,9 @@
         "repo": "fenix"
       },
       "branch": "main",
-      "revision": "1936bb37b1d8597273e3611873dc09dd61b09818",
-      "url": "https://github.com/nix-community/fenix/archive/1936bb37b1d8597273e3611873dc09dd61b09818.tar.gz",
-      "hash": "0gf14mjvk8ni8rqsfddvv00kmyyq3r5nlv362a29ww5xp8bp8p2b"
+      "revision": "d99d2a562b9c9d5f0e4399e5bb677b37a791c7eb",
+      "url": "https://github.com/nix-community/fenix/archive/d99d2a562b9c9d5f0e4399e5bb677b37a791c7eb.tar.gz",
+      "hash": "1lb26grnhr945h87agss8kfv1vxibzkbzyqk8d7xwwxy0zajj03b"
     },
     "home-manager": {
       "type": "Git",
@@ -107,9 +107,9 @@
         "repo": "nix-vscode-extensions"
       },
       "branch": "master",
-      "revision": "66dd0a10ed193f204a7e0f9853bdc21f94dd838f",
-      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/66dd0a10ed193f204a7e0f9853bdc21f94dd838f.tar.gz",
-      "hash": "0p6af2flfx4hd9s7j42iim0j5ic38sdgp8yifn2bkg4pz5z26yjn"
+      "revision": "bfacd5e2786caf61da0ad956728559dd6c1e8037",
+      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/bfacd5e2786caf61da0ad956728559dd6c1e8037.tar.gz",
+      "hash": "10r9krwhan8l5wa2x2igdryzldzgj0ki6aralvxlh6zqs81y9cq0"
     },
     "nixgl": {
       "type": "Git",
@@ -132,14 +132,14 @@
     "nixos-24.11": {
       "type": "Channel",
       "name": "nixos-24.11",
-      "url": "https://releases.nixos.org/nixos/24.11/nixos-24.11.713895.666e1b3f09c2/nixexprs.tar.xz",
-      "hash": "0r33yrwyy7p1hl0fawgzb4yw9il4hbgvzl0y76vr6qdj95s6v0qw"
+      "url": "https://releases.nixos.org/nixos/24.11/nixos-24.11.714033.f6687779bf4c/nixexprs.tar.xz",
+      "hash": "0kzbpcalyqb1izp83nvglqfhxchzv298ff2adsl5x3abcc911c0d"
     },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre745949.9189ac18287c/nixexprs.tar.xz",
-      "hash": "0pwsp7kvjajg4blz0bv3g9a800cjjkh0gi6injqgqx935qw4zc2q"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre746410.102a39bfee44/nixexprs.tar.xz",
+      "hash": "0gky8z82fvcriqfnpwiisgx35x7ap2fx0nbr2h1l47352cpmq72l"
     },
     "nur": {
       "type": "Git",
