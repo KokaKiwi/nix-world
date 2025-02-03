@@ -30,6 +30,7 @@
     ./programs/openssh.nix
     ./programs/password-store.nix
     ./programs/pgcli.nix
+    ./programs/process-compose.nix
     ./programs/ptpython.nix
     ./programs/rust.nix
     ./programs/sccache.nix

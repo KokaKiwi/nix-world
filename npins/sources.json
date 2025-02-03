@@ -12,6 +12,18 @@
       "url": "https://github.com/catppuccin/nix/archive/06f0ea19334bcc8112e6d671fd53e61f9e3ad63a.tar.gz",
       "hash": "1b0sbs820807jzgka8gxfr05n9yrnpa0rqgpdmiqyk7wz5hlhh7j"
     },
+    "catppuccin/process-compose": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "process-compose"
+      },
+      "branch": "main",
+      "revision": "b0c48aa07244a8ed6a7d339a9b9265a3b561464d",
+      "url": "https://github.com/catppuccin/process-compose/archive/b0c48aa07244a8ed6a7d339a9b9265a3b561464d.tar.gz",
+      "hash": "02niadbnif2c28vy51gp40yp55l9gksdxj3bkmav35gbwgs538ms"
+    },
     "crane": {
       "type": "GitRelease",
       "repository": {

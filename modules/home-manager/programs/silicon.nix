@@ -18,14 +18,12 @@ let
     };
   };
 in {
+  options.catppuccin.silicon = ctp.mkCatppuccinOption { name = "silicon"; };
+
   options.programs.silicon = {
     enable = mkEnableOption "silicon, create beautiful image of your source code";
 
     package = mkPackageOption pkgs "silicon" { };
-
-    catppuccin = ctp.mkCatppuccinOption {
-      name = "silicon";
-    };
 
     settings = mkOption {
       type = types.lines;
@@ -62,15 +60,15 @@ in {
     })));
 
     programs.silicon = let
-      themeName = "Catppuccin-${ctp.mkUpper cfg.catppuccin.flavor}";
-    in mkIf cfg.catppuccin.enable {
+      themeName = "Catppuccin-${ctp.mkUpper config.catppuccin.silicon.flavor}";
+    in mkIf config.catppuccin.silicon.enable {
       settings = ''
         --theme "${themeName}"
       '';
 
       themes.${themeName} = {
         src = config.catppuccin.sources.bat;
-        file = "Catppuccin ${ctp.mkUpper cfg.catppuccin.flavor}.tmTheme";
+        file = "Catppuccin ${ctp.mkUpper config.catppuccin.silicon.flavor}.tmTheme";
       };
     };
 

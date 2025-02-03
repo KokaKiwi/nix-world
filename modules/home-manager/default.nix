@@ -40,6 +40,7 @@
     ./programs/paru.nix
     ./programs/pgcli.nix
     ./programs/powerline.nix
+    ./programs/process-compose.nix
     ./programs/ptpython.nix
     ./programs/rust.nix
     ./programs/silicon.nix
