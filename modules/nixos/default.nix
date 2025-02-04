@@ -1,8 +1,7 @@
 { ... }:
 {
   imports = [
-    ./home-manager
-
+    ./misc/shared
     ./misc/secrets.nix
 
     ./networking/openssh.nix

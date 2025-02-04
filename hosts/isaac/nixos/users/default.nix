@@ -5,5 +5,8 @@
     ./nixos
   ];
 
-  shared.ssh-keys.users = [ "root" "nixos" ];
+  cluster.ssh.users = {
+    nixos = { };
+    root = { };
+  };
 }

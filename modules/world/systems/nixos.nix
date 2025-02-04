@@ -7,6 +7,7 @@ let
   module = import "${nixpkgs.path}/nixos/lib/eval-config.nix" {
     modules = [
       (modulesPath + "/nixos")
+      (modulesPath + "/shared")
       cfg.configuration
       {
         _module.args = {

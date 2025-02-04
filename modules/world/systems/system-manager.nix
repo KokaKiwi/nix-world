@@ -11,6 +11,7 @@ let
 
   module = system-manager.lib.makeSystemConfig {
     modules = [
+      (modulesPath + "/shared")
       (modulesPath + "/system-manager")
       cfg.configuration
       ({ lib, ... }: {

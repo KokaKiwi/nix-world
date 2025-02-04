@@ -6,7 +6,7 @@
     extraGroups = [ "wheel" ];
   };
 
-  shared.ssh-keys.users = [ "nixos" ];
+  cluster.ssh.users.nixos = { };
 
   home-manager.users.nixos = import ./home.nix;
 }

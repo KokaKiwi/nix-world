@@ -28,6 +28,7 @@
     ./programs/glances.nix
     ./programs/glow.nix
     ./programs/hub.nix
+    ./programs/just.nix
     ./programs/kde.nix
     ./programs/kitty.nix
     ./programs/lan-mouse.nix

@@ -11,6 +11,7 @@ let
     configuration = { lib, ... }: {
       imports = [
         (modulesPath + "/home-manager")
+        (modulesPath + "/shared")
         cfg.configuration
       ]
       ++ lib.optional (config.secrets.file != null) {

@@ -2,7 +2,8 @@
 {
   imports = [
     ./lib.nix
-    ./misc.nix
+
+    ./misc
 
     ./systemd.nix
 
