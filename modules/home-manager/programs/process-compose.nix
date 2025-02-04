@@ -32,6 +32,10 @@ in {
       };
     };
 
+    programs.process-compose.settings = lib.mkIf ctpCfg.enable {
+      theme = "Custom Style";
+    };
+
     xdg.configFile."process-compose/settings.yaml" = lib.mkIf (cfg.settings != { }) {
       source = settingsFormat.generate "process-compose-settings.yml" cfg.settings;
     };
