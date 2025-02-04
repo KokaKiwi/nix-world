@@ -71,9 +71,9 @@
         "repo": "fenix"
       },
       "branch": "main",
-      "revision": "d99d2a562b9c9d5f0e4399e5bb677b37a791c7eb",
-      "url": "https://github.com/nix-community/fenix/archive/d99d2a562b9c9d5f0e4399e5bb677b37a791c7eb.tar.gz",
-      "hash": "1lb26grnhr945h87agss8kfv1vxibzkbzyqk8d7xwwxy0zajj03b"
+      "revision": "37a1f29ebf98fbbac667730edc5dab4ebe2e3954",
+      "url": "https://github.com/nix-community/fenix/archive/37a1f29ebf98fbbac667730edc5dab4ebe2e3954.tar.gz",
+      "hash": "0bs7gdzbabgjp2jmhgvz5arazvqhvis41f2j9z45vz3y3m8w5nyn"
     },
     "home-manager": {
       "type": "Git",
@@ -83,9 +83,9 @@
         "repo": "home-manager"
       },
       "branch": "master",
-      "revision": "18fa9f323d8adbb0b7b8b98a8488db308210ed93",
-      "url": "https://github.com/nix-community/home-manager/archive/18fa9f323d8adbb0b7b8b98a8488db308210ed93.tar.gz",
-      "hash": "0j56s38y0yzy3pw7qia1n9zkmmn9nkb9mpklj2mc30k5l11fs170"
+      "revision": "066ba0c5cfddbc9e0dddaec73b1561ad38aa8abe",
+      "url": "https://github.com/nix-community/home-manager/archive/066ba0c5cfddbc9e0dddaec73b1561ad38aa8abe.tar.gz",
+      "hash": "14sryxr51hya2hqlpl7qpmi6l70wfv9p2vzdrlqyzmf0wzjrmgn9"
     },
     "home-manager-24.05": {
       "type": "Git",
@@ -119,9 +119,9 @@
         "repo": "nix-vscode-extensions"
       },
       "branch": "master",
-      "revision": "bfacd5e2786caf61da0ad956728559dd6c1e8037",
-      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/bfacd5e2786caf61da0ad956728559dd6c1e8037.tar.gz",
-      "hash": "10r9krwhan8l5wa2x2igdryzldzgj0ki6aralvxlh6zqs81y9cq0"
+      "revision": "615f991fb42739207e7f71138e03b1b9bbe45e72",
+      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/615f991fb42739207e7f71138e03b1b9bbe45e72.tar.gz",
+      "hash": "0gpa61b84rky6cgck9rrhyjzw0p4ffahg3dljsmi3h2zcflnhxhi"
     },
     "nixgl": {
       "type": "Git",
@@ -144,14 +144,14 @@
     "nixos-24.11": {
       "type": "Channel",
       "name": "nixos-24.11",
-      "url": "https://releases.nixos.org/nixos/24.11/nixos-24.11.714033.f6687779bf4c/nixexprs.tar.xz",
-      "hash": "0kzbpcalyqb1izp83nvglqfhxchzv298ff2adsl5x3abcc911c0d"
+      "url": "https://releases.nixos.org/nixos/24.11/nixos-24.11.714063.fecfeb863283/nixexprs.tar.xz",
+      "hash": "1a5j9cg29wzdm7hc4d4rdmgwg2v54015qd1vv6ifk067yh06x8bp"
     },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre746674.6c4e0724e0a7/nixexprs.tar.xz",
-      "hash": "0n0h27hpkyn29g68llgzb0npsgbcns1qs20qygd542087i07wqq1"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre747523.95ea544c84eb/nixexprs.tar.xz",
+      "hash": "057d08rf9zqxr0ljhb27654a3wdlp6n128y347bjxv0jp995y6dc"
     },
     "nur": {
       "type": "Git",
@@ -209,9 +209,9 @@
         "repo": "system-manager"
       },
       "branch": "main",
-      "revision": "196586a97d2b9be12e0b8e646ac1ec4f213cc9cd",
-      "url": "https://github.com/numtide/system-manager/archive/196586a97d2b9be12e0b8e646ac1ec4f213cc9cd.tar.gz",
-      "hash": "03fm01g0acfhmssj8rc00hlxf1b1ik8bhqyqza9yikn746m84gyq"
+      "revision": "de28d23132138f3fce4a210e611eb03e0c8299fd",
+      "url": "https://github.com/numtide/system-manager/archive/de28d23132138f3fce4a210e611eb03e0c8299fd.tar.gz",
+      "hash": "1sba2xrpzwxvgyjfp15wm1n1f44qla6i6i0np0hzgzadpsr8mzvv"
     },
     "vpsadminos": {
       "type": "Git",
