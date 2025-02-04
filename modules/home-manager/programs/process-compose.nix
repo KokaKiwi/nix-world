@@ -32,10 +32,10 @@ in {
       };
     };
 
-    xdg.configFile."process-compose/settings.yml" = lib.mkIf (cfg.settings != { }) {
+    xdg.configFile."process-compose/settings.yaml" = lib.mkIf (cfg.settings != { }) {
       source = settingsFormat.generate "process-compose-settings.yml" cfg.settings;
     };
-    xdg.configFile."process-compose/theme.yml" = lib.mkIf ctpCfg.enable {
+    xdg.configFile."process-compose/theme.yaml" = lib.mkIf ctpCfg.enable {
       source = "${config.catppuccin.sources.process-compose}/catppuccin-${ctpCfg.flavor}.yaml";
     };
   };
