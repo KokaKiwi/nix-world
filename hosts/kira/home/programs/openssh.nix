@@ -60,7 +60,7 @@ in {
       galileo = {
         hostname = "192.168.1.1";
         user = "pi";
-        identityFile = "~/.ssh/id_router";
+        identityFile = "~/.ssh/id_ed25519";
       };
 
       nix-games = {
