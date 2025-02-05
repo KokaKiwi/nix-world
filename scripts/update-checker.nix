@@ -35,6 +35,7 @@ pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
 
       git-interactive-rebase-tool syncthing
       usage viceroy yazi-unwrapped
+      tig hoppscotch
     ];
     allPackages = hostPackages ++ extraPackages;
 
@@ -61,6 +62,7 @@ pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
     patool.prefix = "upstream/";
     stockfish.include_regex = "sf_.*";
     stockfish.prefix = "sf_";
+    tig.prefix = "tig-";
     zoxide.prefix = "v";
   };
   sources = {
