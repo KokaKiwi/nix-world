@@ -1,7 +1,9 @@
 { pkgs, ... }:
 {
   services.nginx = {
-    package = pkgs.nginxQuic;
+    package = pkgs.nginxQuic.override {
+      modules = [ ];
+    };
 
     appendConfig = ''
       worker_processes auto;
