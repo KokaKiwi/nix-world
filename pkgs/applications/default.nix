@@ -91,6 +91,7 @@ in {
   glow = callPackage ./editors/glow { };
   hd = callPackage ./development/tools/hd { };
   hexyl = callPackage ./tools/misc/hexyl { };
+  hoppscotch = callPackage ./by-name/ho/hoppscotch { };
   hyfetch = callPackage ./tools/misc/hyfetch { };
   ixx = callPackage "${sources.ixx}/ixx/derivation.nix" { };
   jellyfin-media-player = libsForQt5.callPackage ./misc/jellyfin-media-player { };
