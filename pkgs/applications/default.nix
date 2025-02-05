@@ -150,6 +150,11 @@ in {
   szurubooru-cli = callPackage ./misc/booru-cli { };
   taplo = callPackage ./development/tools/taplo { };
   tmux = callPackage ./tools/misc/tmux { };
+  tor = callPackage ./tools/security/tor {
+    _override = true;
+
+    systemd = pkgs.systemdMinimal;
+  };
   trunk = callPackage ./development/tools/trunk { };
   usage = callPackage ./tools/usage { };
   uv = callPackage ./development/tools/uv { };
