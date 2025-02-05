@@ -54,6 +54,7 @@ pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
     cargo-nextest.prefix = "cargo-nextest-";
     dorion.prefix = "v";
     gleam.prefix = "v";
+    hoppscotch.prefix = "v";
     imhex.prefix = "v";
     kitty.prefix = "v";
     kubo.prefix = "v";
