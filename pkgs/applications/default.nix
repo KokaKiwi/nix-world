@@ -158,7 +158,9 @@ in {
   trunk = callPackage ./development/tools/trunk { };
   usage = callPackage ./tools/usage { };
   uv = callPackage ./development/tools/uv { };
-  vesktop = callPackage ./misc/vesktop { };
+  vesktop = callPackage ./misc/vesktop {
+    pnpm = pkgs.pnpm_9;
+  };
   viceroy = callPackage ./development/tools/viceroy { };
   wasm-bindgen-cli = callPackage ./development/tools/wasm-bindgen-cli { };
   wasm-tools = callPackage ./tools/misc/wasm-tools { };

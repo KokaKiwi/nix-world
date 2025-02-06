@@ -1,5 +1,5 @@
 diff --git a/src/main/index.ts b/src/main/index.ts
-index 2e0d6f7..309924b 100644
+index 9e9244f..e08a797 100644
 --- a/src/main/index.ts
 +++ b/src/main/index.ts
 @@ -7,7 +7,6 @@
@@ -10,16 +10,12 @@ index 2e0d6f7..309924b 100644
  
  import { DATA_DIR } from "./constants";
  import { createFirstLaunchTour } from "./firstLaunch";
-@@ -17,12 +16,6 @@ import { registerScreenShareHandler } from "./screenShare";
- import { Settings, State } from "./settings";
- import { isDeckGameMode } from "./utils/steamOS";
+@@ -19,8 +18,6 @@ import { isDeckGameMode } from "./utils/steamOS";
  
--if (IS_DEV) {
--    require("source-map-support").install();
+ if (IS_DEV) {
+     require("source-map-support").install();
 -} else {
 -    autoUpdater.checkForUpdatesAndNotify();
--}
--
- // Make the Vencord files use our DATA_DIR
- process.env.VENCORD_USER_DATA_DIR = DATA_DIR;
+ }
  
+ console.log("Vesktop v" + app.getVersion());
