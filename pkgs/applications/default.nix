@@ -147,6 +147,7 @@ in {
   syncthingtray = kdePackages.callPackage ./misc/syncthingtray { };
   szurubooru-cli = callPackage ./misc/booru-cli { };
   taplo = callPackage ./development/tools/taplo { };
+  tig = callPackage ./by-name/ti/tig { };
   tmux = callPackage ./tools/misc/tmux { };
   tor = callPackage ./tools/security/tor {
     _override = true;
