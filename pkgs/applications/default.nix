@@ -106,9 +106,7 @@ in {
   litecli = callPackage ./development/tools/database/litecli { };
   mise = callPackage ./development/tools/mise { };
   minio-client = callPackage ./tools/networking/minio-client { };
-  miniserve = callPackage ./tools/misc/miniserve {
-    inherit (rustTools.rust_1_81) rustPlatform;
-  };
+  miniserve = callPackage ./tools/misc/miniserve { };
   minisign = callPackage ./tools/security/minisign { };
   module-server = callPackage ./misc/module-server {
     inherit (rustTools.stable) cargo;
