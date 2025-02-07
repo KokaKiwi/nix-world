@@ -29,6 +29,10 @@ let
       rev = "a4f56a459a588ae768801074b46ba0adcfb49eb1";
       hash = "sha256-zAMf0BRPgfCBsCcnU2jWpZ9vHmKOT0YcOKC0XJFw2Ps=";
     };
+
+    packageOverrides = callPackage ./deps/lua-packages.nix {
+      inherit libuv;
+    };
   };
 
   utf8proc' = let
