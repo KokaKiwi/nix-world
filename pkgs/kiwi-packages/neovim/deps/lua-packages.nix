@@ -44,6 +44,8 @@ in {
   libluv = callPackage ({
     stdenv,
 
+    isLuaJIT,
+
     cmake,
     pkg-config,
   }: stdenv.mkDerivation {
@@ -69,7 +71,7 @@ in {
       "-DBUILD_MODULE=OFF"
       "-DWITH_SHARED_LIBUV=ON"
       "-DLUA_BUILD_TYPE=System"
-      "-DWITH_LUA_ENGINE=LuaJit"
+      "-DWITH_LUA_ENGINE=${if isLuaJIT then "LuaJit" else "Lua"}"
     ];
 
     inherit (final.luv) meta;
