@@ -6,11 +6,11 @@
 }:
 appimageTools.wrapType2 rec {
   pname = "hoppscotch";
-  version = "25.1.0-0";
+  version = "25.1.1-0";
 
   src = fetchurl {
     url = "https://github.com/hoppscotch/releases/releases/download/v${version}/Hoppscotch_linux_x64.AppImage";
-    hash = "sha256-XblcVt21k1ruKaQf2WnjuVrWg+M7N7Xwf+cLkiEdp0c=";
+    hash = "sha256-M9fQx4NBotLPe8i43E1uqHpFeoXdHGQePp4zgzbzDdM=";
   };
 
   extraInstallCommands = let
