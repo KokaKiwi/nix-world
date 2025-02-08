@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./services
@@ -23,4 +23,8 @@
   };
 
   networking.firewall.enable = false;
+
+  environment.systemPackages = [
+    pkgs.kiwiPackages.dwarfs
+  ];
 }
