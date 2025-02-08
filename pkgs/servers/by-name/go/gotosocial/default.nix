@@ -1,9 +1,8 @@
-{ lib
-
-, fetchFromGitHub
-, fetchurl
-
-, buildGoModule
+{
+  lib,
+  fetchurl,
+  fetchFromGitHub,
+  buildGoModule,
 }:
 let
   owner = "superseriousbusiness";
@@ -43,13 +42,20 @@ in buildGoModule rec {
     mv web $out/share/gotosocial/
   '';
 
+  # tests are working only on x86_64-linux
+  # doCheck = stdenv.hostPlatform.isLinux && stdenv.hostPlatform.isx86_64;
+  # checks are currently very unstable in our setup, so we should test manually for now
   doCheck = false;
-  checkFlags = let
-    # flaky / broken tests
-    skippedTests = [ ];
-  in [
-    "-skip=^${builtins.concatStringsSep "$|^" skippedTests}$"
-  ];
+
+  checkFlags =
+    let
+      # flaky / broken tests
+      skippedTests = [
+        # See: https://github.com/superseriousbusiness/gotosocial/issues/2651
+        "TestPage/minID,_maxID_and_limit_set"
+      ];
+    in
+    [ "-skip=^${builtins.concatStringsSep "$|^" skippedTests}$" ];
 
   meta = with lib; {
     homepage = "https://gotosocial.org";

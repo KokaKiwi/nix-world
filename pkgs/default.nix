@@ -8,7 +8,10 @@ let
   importSub = super.lib.callPackageWith {
     inherit pkgs lib super sources;
     inherit callPackage importSub;
+    inherit util;
   };
+
+  util = importSub ./util.nix { };
 
   applications = importSub ./applications { };
   build-support = importSub ./build-support { };
