@@ -49,7 +49,7 @@ rec {
   dwarfs = callPackage ./dwarfs {
     stdenv = pkgs.llvmStdenv;
   };
-  libgit2 = callPackage ./libgit2 { };
+  libgit2 = pkgs.libgit2;
   man-db = callPackage ./man-db { };
   neovim = callPackage ./neovim { };
   stockfish = callPackage ./games/stockfish { };

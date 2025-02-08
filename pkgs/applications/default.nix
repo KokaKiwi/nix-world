@@ -20,6 +20,7 @@ in {
   bitwarden-cli = callPackage ./misc/bitwarden-cli { };
   cargo-c-next = callPackage ./development/tools/rust/cargo-c { };
   cargo-shell = callPackage ./development/tools/rust/cargo-shell { };
+  eza = callPackage ./by-name/ez/eza/package.nix { };
   fixx = callPackage "${sources.ixx}/fixx/derivation.nix" { };
   hoppscotch = callPackage ./by-name/ho/hoppscotch { };
   ixx = callPackage "${sources.ixx}/ixx/derivation.nix" { };
