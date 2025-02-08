@@ -1,4 +1,4 @@
-{ pkgs, sources, util }:
+{ pkgs, util }:
 let
   inherit (pkgs) kiwiPackages;
   inherit (pkgs) kdePackages rustTools;
@@ -39,7 +39,5 @@ in util.callPackagesRecursive {
     };
   };
 } // {
-  fixx = callPackage "${sources.ixx}/fixx/derivation.nix" { };
-  ixx = callPackage "${sources.ixx}/ixx/derivation.nix" { };
   inherit (nixd) nixf nixt nixd;
 }
