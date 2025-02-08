@@ -25,9 +25,9 @@ stdenv.mkDerivation (finalAttrs: {
     rustc
   ];
 
-  cargoDeps = rustPlatform.fetchCargoTarball {
+  cargoDeps = rustPlatform.fetchCargoVendor {
     inherit (finalAttrs) src;
-    hash = "sha256-TxwlmGmTCNao4yZW8fwUXzxdC58cp+iKjWDsZ2MhttQ=";
+    hash = "sha256-fyGqJhdQ9o0FSMTg7O21y022ul+xXzQzMBZdu2mD2Aw=";
   };
 
   cmakeDir = "../crates/c-api";
