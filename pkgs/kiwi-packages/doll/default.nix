@@ -16,7 +16,8 @@ rustPlatform.buildRustPackage {
     hash = "sha256-gLCLapuBMUU7Iaqo+jz+Lb0RGkPa2jcENhH5MXMUBxM=";
   };
 
-  cargoHash = "sha256-k8grWNK4jXbWRobCtpqByVzcx6oocPg0Fz3O3FnvlSY=";
+  useFetchCargoVendor = true;
+  cargoHash = "sha256-SYu+v6x/XcNnwFoiO7OHVTbtJDGrlwambKfC/y+BBqs=";
 
   meta = with lib; {
     description = "Doll and drones related tooling";

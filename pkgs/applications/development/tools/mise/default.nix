@@ -24,7 +24,8 @@
     hash = "sha256-SqFug6Z1VAbERwiho73YDSzVPtzl7fBsE8++NfGkeW4=";
   };
 
-  cargoHash = "sha256-fN9eywclpFp73fDq7NoH6xCqnVntp6knpanRtvdQRYM=";
+  useFetchCargoVendor = true;
+  cargoHash = "sha256-kz6WJyK+eb1I+ZjgL94je0HYNHWfcUvnxD7UThlP7wU=";
 
   nativeBuildInputs = [
     addUsageCompletion

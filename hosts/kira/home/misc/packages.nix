@@ -35,7 +35,8 @@ let
   };
 in {
   home.packages = with pkgs; [
-    attic-client colmena bitwarden-cli
+    attic-client
+    # bitwarden-cli # BROKEN
     eza hexyl pdm
     cargo-shell opentofu gleam mergerfs
     nix-info nurl nixos-option nixfmt-rfc-style
@@ -49,8 +50,8 @@ in {
     bun consul uv b3sum b2sum
     amber-lang fastly npins
     pre-commit sequoia-sq oxipng
-    oha drill hd
-    ziggy gitnr binaryen
+    oha drill
+    gitnr binaryen
     just sqlx-cli sea-orm-cli sqls
     nitrokey-app2 pynitrokey wasm-bindgen-cli
     devenv pwgen pwgen-secure

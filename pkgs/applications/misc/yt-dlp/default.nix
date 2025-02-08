@@ -11,14 +11,14 @@
 }:
 python3.pkgs.buildPythonPackage rec {
   pname = "yt-dlp";
-  version = "2025.01.15";
+  version = "2025.01.26-unstable-2025-01-30";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "yt-dlp";
     repo = "yt-dlp";
-    tag = version;
-    hash = "sha256-d9RGlANDkjRInIVADCrzx8+wn4wVc04J7Wn0c1q4N7k=";
+    rev = "03c3d705778c07739e0034b51490877cffdc0983";
+    hash = "sha256-RxlfmNxGEq6AulLJUnGhFwBzuvPxcS8o3pO/Km1iVvM=";
   };
 
   # curl-cffi 0.7.2 and 0.7.3 are broken, but 0.7.4 is fixed

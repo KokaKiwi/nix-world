@@ -23,7 +23,8 @@ let
       hash = "sha256-xnUhiIeRxD4ZKMUQ6pNEetDqiFqiJsa57BRM2zqNFro=";
     };
 
-    cargoHash = "sha256-/R27XU2KRFVfbM0PSrJ/wscB7D/NF55FqrCNyBvuQZY=";
+    useFetchCargoVendor = true;
+    cargoHash = "sha256-YaXeApg0U97Bm+kBdFdmfnkgg9GBxxYdaDzgCVN2sbY=";
 
     nativeBuildInputs = lib.optionals withWasm [ cmake ];
 
