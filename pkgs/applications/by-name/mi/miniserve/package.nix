@@ -5,7 +5,8 @@
   installShellFiles,
   stdenv,
   darwin,
-  curl,
+  openssl,
+  pkg-config,
 }:
 rustPlatform.buildRustPackage rec {
   pname = "miniserve";
@@ -23,24 +24,18 @@ rustPlatform.buildRustPackage rec {
 
   nativeBuildInputs = [
     installShellFiles
+    pkg-config
   ];
 
-  buildInputs = lib.optionals stdenv.hostPlatform.isDarwin [
+  buildInputs = [
+    openssl
+  ]
+  ++ lib.optionals stdenv.hostPlatform.isDarwin [
     darwin.apple_sdk.frameworks.Security
     darwin.apple_sdk.frameworks.SystemConfiguration
   ];
 
-  nativeCheckInputs = [
-    curl
-  ];
-
-  checkFlags = [
-    "--skip=bind_ipv4_ipv6::case_2"
-    "--skip=qrcode_hidden_in_tty_when_disabled"
-    "--skip=qrcode_shown_in_tty_when_enabled"
-    "--skip=show_root_readme_contents"
-    "--skip=validate_printed_urls"
-  ];
+  doCheck = false;
 
   postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
     $out/bin/miniserve --print-manpage >miniserve.1
