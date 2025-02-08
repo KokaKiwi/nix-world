@@ -46,6 +46,9 @@ rec {
   cargo-pgrx = callPackage ./cargo-pgrx { };
   cargo-setup-project = callPackage ./cargo-setup-project { };
   doll = callPackage ./doll { };
+  dwarfs = callPackage ./dwarfs {
+    stdenv = pkgs.llvmStdenv;
+  };
   libgit2 = callPackage ./libgit2 { };
   man-db = callPackage ./man-db { };
   neovim = callPackage ./neovim { };
