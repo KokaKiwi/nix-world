@@ -7,7 +7,9 @@ in {
 
     flavour = "vesktop";
     package = let
-      discord = pkgs.vesktop;
+      discord = pkgs.vesktop.override {
+        electron = pkgs.electron_33;
+      };
     in opengl.wrapPackage discord { };
 
     vesktop = {
