@@ -17,7 +17,8 @@ in rec {
       (lib.path.append path "default.nix")
       (lib.path.append path "package.nix")
     ];
-  in if defaultPath != null then {
+  in if lib.hasPrefix "_" name then { }
+  else if defaultPath != null then {
     ${name} = callPackage' defaultPath (lib.removeAttrs args [ "_callPackage" ]);
   }
   else if type == "directory" then
