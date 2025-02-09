@@ -1,21 +1,9 @@
 { pkgs, lib, ... }:
 {
   imports = [
-    ./misc/catppuccin.nix
-    ./misc/deuxfleurs.nix
-    ./misc/editorconfig.nix
-    ./misc/files.nix
-    ./misc/home.nix
-    ./misc/music.nix
-    ./misc/nix.nix
-    ./misc/opengl.nix
-    ./misc/packages.nix
-    ./misc/secrets.nix
-    ./misc/systemd.nix
-    ./misc/xdg.nix
-
-    ./programs.nix
-    ./services.nix
+    ./misc
+    ./programs
+    ./services
   ]
   ++ lib.optional (builtins.pathExists ./private) ./private;
 

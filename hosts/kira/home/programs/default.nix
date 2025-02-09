@@ -34,6 +34,63 @@ let
     };
   };
 in {
+  imports = [
+    ./act.nix
+    ./aura.nix
+    ./bash.nix
+    ./bat.nix
+    ./bpython.nix
+    ./discord.nix
+    ./element.nix
+    ./ferdium.nix
+    ./fish.nix
+    ./gajim.nix
+    ./gdb.nix
+    ./gh.nix
+    ./git.nix
+    ./gnupg.nix
+    ./hyfetch.nix
+    ./kde.nix
+    ./kitty.nix
+    ./litecli.nix
+    ./llvm.nix
+    ./man.nix
+    ./mise.nix
+    ./mux.nix
+    ./neovim.nix
+    ./nix-index.nix
+    ./nushell.nix
+    ./nvchecker.nix
+    ./openssh.nix
+    ./password-store.nix
+    ./pgcli.nix
+    ./process-compose.nix
+    ./ptpython.nix
+    ./rust.nix
+    ./sccache.nix
+    ./silicon.nix
+    ./starship.nix
+    ./taplo.nix
+    ./tmux.nix
+    ./vscode.nix
+    ./xh.nix
+    ./yazi.nix
+  ];
+
+  programs = {
+    aura.enable = true;
+    fd.enable = true;
+    gitui.enable = true;
+    glab.enable = true;
+    glances.enable = true;
+    glow.enable = true;
+    hub.enable = true;
+    nix-init.enable = true;
+    szurubooru-cli.enable = true;
+    yt-dlp.enable = true;
+    zoxide.enable = true;
+  };
+
   home.packages = with pkgs; [
     attic-client
     # bitwarden-cli # BROKEN
@@ -56,7 +113,7 @@ in {
     nitrokey-app2 pynitrokey wasm-bindgen-cli
     devenv pwgen pwgen-secure
     catppuccin-catwalk catppuccin-whiskers ssh-to-age ssh-to-pgp
-    sops
+    sops gum
     nixgl.nixGLIntel
 
     # Data
@@ -73,8 +130,4 @@ in {
     doll
   ])
   ++ (lib.attrValues packages);
-
-  env.homePackages = let
-    namedPackages = lib.filter (drv: drv ? pname) config.home.packages;
-  in builtins.listToAttrs (map (drv: lib.nameValuePair drv.pname drv) namedPackages);
 }
