@@ -12,6 +12,7 @@
   curl,
   autoconf,
   automake,
+  autoreconfHook,
   libtool,
   outputsSupport ? true, # outputs screen
   visualizerSupport ? false,
@@ -45,6 +46,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   nativeBuildInputs = [
+    autoreconfHook
     autoconf
     automake
     libtool
@@ -64,12 +66,9 @@ stdenv.mkDerivation (finalAttrs: {
   ++ lib.optional taglibSupport taglib;
 
   preConfigure =
-    ''
-      ./autogen.sh
-    ''
-    + lib.optionalString stdenv.hostPlatform.isDarwin ''
+    lib.optionalString stdenv.hostPlatform.isDarwin ''
       # std::result_of was removed in c++20 and unusable for clang16
-      substituteInPlace ./configure \
+      substituteInPlace ./configure.ac \
         --replace-fail "std=c++20" "std=c++17"
     '';
 
