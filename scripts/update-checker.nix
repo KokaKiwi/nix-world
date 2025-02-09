@@ -124,6 +124,13 @@ pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
       gitlab = "sequoia-pgp/sequoia-sq";
       use_max_tag = true;
     };
+    tor = {
+      source = "gitlab";
+      host = "gitlab.torproject.org";
+      gitlab = "tpo/core/tor";
+      use_max_tag = true;
+      prefix = "tor-";
+    };
   };
   overrides = {
     aura.exclude_regex = "^$";
