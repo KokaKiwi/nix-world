@@ -68,4 +68,8 @@ in {
   };
 
   secrets."ccvpn-fr.conf" = { };
+
+  cluster.world.packages = [
+    cfg.package
+  ];
 }

@@ -62,7 +62,7 @@ in {
         ${package}/activate
       '';
 
-      packages = module.config.environment.systemPackages;
+      packages = module.config.environment.systemPackages ++ module.config.cluster.world.packages;
       pathsToCache = packages;
     };
   };

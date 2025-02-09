@@ -25,4 +25,6 @@ in {
   webserver.services.media = {
     proxyPass = "http://192.168.1.80:8096";
   };
+
+  cluster.world.packages = [ cfg.package ];
 }

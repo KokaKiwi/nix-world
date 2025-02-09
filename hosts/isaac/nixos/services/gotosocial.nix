@@ -72,4 +72,8 @@ in {
   };
 
   secrets."gotosocial.env" = { };
+
+  cluster.world.packages = [
+    cfg.package
+  ];
 }

@@ -67,7 +67,7 @@ in {
       };
       activate = "${package}/activate";
 
-      packages = module.config.home.packages;
+      packages = module.config.home.packages ++ module.config.cluster.world.packages;
       pathsToCache = packages;
     };
   };

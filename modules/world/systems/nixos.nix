@@ -169,6 +169,9 @@ in {
       };
 
       inherit (scripts) activate;
+
+      packages = module.config.cluster.world.packages;
+      pathsToCache = module.config.environment.systemPackages ++ module.config.cluster.world.packages;
     };
   };
 }
