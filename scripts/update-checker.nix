@@ -64,6 +64,7 @@ pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
     stockfish.include_regex = "sf_.*";
     stockfish.prefix = "sf_";
     tig.prefix = "tig-";
+    worker-build.include_regex = "worker-build-v.*";
     zoxide.prefix = "v";
   };
   sources = {
@@ -137,6 +138,7 @@ pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
     binaryen.prefix = "version_";
     lix.exclude_regex = "^$";
     pgcli.use_latest_tag = true;
+    worker-build.prefix = "worker-build-v";
   };
 
   nvcheckerConfig = {
