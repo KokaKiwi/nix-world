@@ -61,6 +61,7 @@ pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
     minio-client.prefix = "RELEASE.";
     obsidian.prefix = "v";
     patool.prefix = "upstream/";
+    qbittorrent-nox.prefix = "release-";
     stockfish.include_regex = "sf_.*";
     stockfish.prefix = "sf_";
     tig.prefix = "tig-";
