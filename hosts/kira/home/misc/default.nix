@@ -5,6 +5,7 @@
     ./editorconfig.nix
     ./files.nix
     ./home.nix
+    ./i18n.nix
     ./music.nix
     ./nix.nix
     ./opengl.nix
