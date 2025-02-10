@@ -98,7 +98,9 @@ let
       ${toString pushCommand} ${module.config.system.build.toplevel}
     '';
     register-profile = ''
-      ${toString sshCommand} nix-env --profile /nix/var/nix/profiles/system --set ${module.config.system.build.toplevel}
+      ${toString sshCommand} \
+        ${lib.optionalString cfg.deployment.useSudo "sudo -H --"} \
+        nix-env --profile /nix/var/nix/profiles/system --set ${module.config.system.build.toplevel}
     '';
   };
 
