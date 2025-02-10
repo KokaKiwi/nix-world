@@ -1,0 +1,43 @@
+{
+  imports = [
+    ./config
+
+    ./act.nix
+    ./aura.nix
+    ./bpython.nix
+    ./discord.nix
+    ./element.nix
+    ./eza.nix
+    ./ferdium.nix
+    ./fish.nix
+    ./gajim.nix
+    ./git.nix
+    ./glab.nix
+    ./glances.nix
+    ./glow.nix
+    ./hub.nix
+    ./just.nix
+    ./kde.nix
+    ./kitty.nix
+    ./lan-mouse.nix
+    ./litecli.nix
+    ./mise.nix
+    ./mux.nix
+    ./neovim.nix
+    ./nix-init.nix
+    ./nvchecker.nix
+    ./paru.nix
+    ./pgcli.nix
+    ./powerline.nix
+    ./process-compose.nix
+    ./ptpython.nix
+    ./rust.nix
+    ./silicon.nix
+    ./ssh.nix
+    ./starship.nix
+    ./szurubooru-cli.nix
+    ./taplo.nix
+    ./tmux.nix
+    ./xh.nix
+  ];
+}
