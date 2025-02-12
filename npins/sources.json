@@ -8,9 +8,9 @@
         "repo": "nix"
       },
       "branch": "main",
-      "revision": "aee0cec463e62702751adaeb9f4fc00f2f72879b",
-      "url": "https://github.com/catppuccin/nix/archive/aee0cec463e62702751adaeb9f4fc00f2f72879b.tar.gz",
-      "hash": "0q3l8kscf95hnwf9nfbs5y0xdl6a83dasqjrcmw0j7qrj11r5s9d"
+      "revision": "d4e258e29075a86a82dacaf4f5e0985935ae4658",
+      "url": "https://github.com/catppuccin/nix/archive/d4e258e29075a86a82dacaf4f5e0985935ae4658.tar.gz",
+      "hash": "10is1i4x4k2cpvsr772v26188x1ynza8p7mb2x7bnqvhznanawhr"
     },
     "catppuccin/process-compose": {
       "type": "Git",
@@ -71,9 +71,9 @@
         "repo": "fenix"
       },
       "branch": "main",
-      "revision": "c023dde9e8b73c78348384661cf3d5e5f209558d",
-      "url": "https://github.com/nix-community/fenix/archive/c023dde9e8b73c78348384661cf3d5e5f209558d.tar.gz",
-      "hash": "0gwxhak6vp799zh228lkhv92hg1bxmfm699py2wrnlbrfbkp2ij6"
+      "revision": "2d0149540591393c61dfd29f6883ba712d24e04f",
+      "url": "https://github.com/nix-community/fenix/archive/2d0149540591393c61dfd29f6883ba712d24e04f.tar.gz",
+      "hash": "063yz9zj4p9v66kl1zc4pxallxfm10qz33cp5hrjgglikjha6bm2"
     },
     "home-manager": {
       "type": "Git",
@@ -83,9 +83,9 @@
         "repo": "home-manager"
       },
       "branch": "master",
-      "revision": "ba4a1a110204c27805d1a1b5c8b24b3a0da4d063",
-      "url": "https://github.com/nix-community/home-manager/archive/ba4a1a110204c27805d1a1b5c8b24b3a0da4d063.tar.gz",
-      "hash": "13ky419aycilw37w6rv1nyq8vxd5adihvk00zirdgx6gf70lamvy"
+      "revision": "83bd3a26ac0526ae04fa74df46738bb44b89dcdd",
+      "url": "https://github.com/nix-community/home-manager/archive/83bd3a26ac0526ae04fa74df46738bb44b89dcdd.tar.gz",
+      "hash": "0lkcw3jkay0fra6nxf4wxphlf0mjw3mzwp7cinvqbj152zc5y1c2"
     },
     "home-manager-24.05": {
       "type": "Git",
@@ -119,9 +119,9 @@
         "repo": "nix-vscode-extensions"
       },
       "branch": "master",
-      "revision": "eca81883cfad1f52a52d09025d10f5907200ea06",
-      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/eca81883cfad1f52a52d09025d10f5907200ea06.tar.gz",
-      "hash": "06bpzgdyn0l5vpvqj8d1d4pv67w0cb54qffdv5n0nbxaa58kskxf"
+      "revision": "00d1dbcc3d422c6eabf9285759a4469a5a5a7542",
+      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/00d1dbcc3d422c6eabf9285759a4469a5a5a7542.tar.gz",
+      "hash": "03qkg8miv6c2gmfmjkh4r558gmrdd3fcszwwd10m0aq6dxh77asn"
     },
     "nixgl": {
       "type": "Git",
@@ -144,14 +144,14 @@
     "nixos-24.11": {
       "type": "Channel",
       "name": "nixos-24.11",
-      "url": "https://releases.nixos.org/nixos/24.11/nixos-24.11.714287.a45fa362d887/nixexprs.tar.xz",
-      "hash": "1n10rra2j4zfyj12c930dwy2hjyvscgfqalbvf2g7wvmdy4ysm2z"
+      "url": "https://releases.nixos.org/nixos/24.11/nixos-24.11.714363.44534bc021b8/nixexprs.tar.xz",
+      "hash": "1c857qvvrdiilh704a05jx7471fpy2472fz48x8ik2i975a4m7a8"
     },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre750627.fa35a3c8e17a/nixexprs.tar.xz",
-      "hash": "1hv473h2qw52qn98vvyfnzhwrihfimk3qvhw8iazp7l51wfs2da5"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre751383.b2243f41e860/nixexprs.tar.xz",
+      "hash": "1j7j5dg1hwy7r8c61ghxshiq0k5cq0852b5730h0w5knmhlfj2a4"
     },
     "nur": {
       "type": "Git",
@@ -209,9 +209,9 @@
         "repo": "system-manager"
       },
       "branch": "main",
-      "revision": "e09166d9d4eab2bf010c1589fbf4542a54b022e3",
-      "url": "https://github.com/numtide/system-manager/archive/e09166d9d4eab2bf010c1589fbf4542a54b022e3.tar.gz",
-      "hash": "1dsgfpmjdqbzpwximajaw7lqxbb99c99ll8bvyiick2pilvf7fyk"
+      "revision": "82d5a9ecd15ec48bcbfbacf5462066ee267d6aae",
+      "url": "https://github.com/numtide/system-manager/archive/82d5a9ecd15ec48bcbfbacf5462066ee267d6aae.tar.gz",
+      "hash": "18h18zpm0vprkrizhh2xx4akfgi0m1a26s9pdc2bga963yslm40m"
     },
     "vpsadminos": {
       "type": "Git",
