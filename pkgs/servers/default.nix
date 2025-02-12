@@ -9,6 +9,9 @@ in util.callPackagesRecursive {
   inherit callPackage;
 
   overrides = {
+    gotosocial = {
+      _override = true;
+    };
     knot-resolver = {
       _override = true;
 
