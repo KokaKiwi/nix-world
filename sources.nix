@@ -4,17 +4,9 @@ let
   pkgs = import sources.nixpkgs { };
   inherit (pkgs) lib callPackage;
 
-  patches = {
-    agenix = [
-      "0001-Fix-rekey.patch"
-    ];
-    catppuccin = [
-      "0001-Expose-lib.ctp.patch"
-    ];
-    home-manager = [
-      "0001-PR-5957-espanso-add-sandboxing-for-systemd-service.patch"
-    ];
-  };
+  patches = lib.mapAttrs (name: type:
+    lib.mapAttrsToList (name: type: name) (builtins.readDir ./npins/patches/${name})
+  ) (builtins.readDir ./npins/patches);
 
   lix = callPackage ./pkgs/lix.nix { };
 
