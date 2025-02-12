@@ -12,6 +12,8 @@
         default = trivial.release;
       };
 
+      activationScripts = rawOption { };
+      build = rawOption { };
       checks = rawOption { };
     };
 
@@ -21,8 +23,9 @@
     networking.resolvconf = rawOption {
       enable = false;
     };
-    services.resolved = rawOption {
-      enable = false;
+    services = {
+      openssh = rawOption { enable = false; };
+      resolved = rawOption { enable = false; };
     };
   };
 }

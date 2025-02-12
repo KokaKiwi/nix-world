@@ -22,7 +22,19 @@ let
           pkgs = lib.mkForce nixpkgs.pkgs;
         };
       })
-    ];
+    ]
+    ++ lib.optional (config.secrets.file != null) {
+      imports = [
+        "${sources.sops-nix}/modules/sops"
+      ];
+
+      sops.useSystemdActivation = true;
+      sops.defaultSopsFile = config.secrets.file;
+
+      systemd.services.sops-install-secrets = {
+        wantedBy = lib.mkForce [ "system-manager.target" ];
+      };
+    };
 
     extraSpecialArgs = cfg.extraSpecialArgs // {
       inherit (nixpkgs.pkgs) nur;

@@ -1,0 +1,26 @@
+diff --git a/modules/sops/default.nix b/modules/sops/default.nix
+index 860a9a9..7696a8f 100644
+--- a/modules/sops/default.nix
++++ b/modules/sops/default.nix
+@@ -31,7 +31,8 @@ let
+ 
+   useSystemdActivation =
+     (options.systemd ? sysusers && config.systemd.sysusers.enable)
+-    || (options.services ? userborn && config.services.userborn.enable);
++    || (options.services ? userborn && config.services.userborn.enable)
++    || cfg.useSystemdActivation;
+ 
+   withEnvironment = import ./with-environment.nix {
+     inherit cfg lib;
+@@ -309,6 +310,11 @@ in
+       '';
+     };
+ 
++    useSystemdActivation = lib.mkOption {
++      type = lib.types.bool;
++      default = false;
++    };
++
+     age = {
+       keyFile = lib.mkOption {
+         type = lib.types.nullOr pathNotInStore;

@@ -110,26 +110,12 @@ in {
         "https://docs.lix.systems/manual/lix/stable"
       ];
 
-      unitConfig = {
-        RequiresMountsFor = [
-          "/nix/store"
-          "/nix/var"
-          "/nix/var/nix/db"
-        ];
-        ConditionPathIsReadWrite = [
-          "/nix/var/nix/daemon-socket"
-        ];
-      };
+      unitConfig.RequiresMountsFor = [ "/nix/store" ];
       serviceConfig = {
-        ExecStart = "@${cfg.package}/bin/nix-daemon nix-daemon --daemon";
-
-        KillMode = "process";
-
         CPUSchedulingPolicy = cfg.daemonCPUSchedPolicy;
         IOSchedulingClass = cfg.daemonIOSchedClass;
         IOSchedulingPriority = cfg.daemonIOSchedPriority;
         LimitNOFILE = 1048576;
-        TasksMax = 1048576;
         Delegate = "yes";
       };
 
@@ -141,16 +127,6 @@ in {
       stopIfChanged = false;
     };
 
-    systemd.sockets.nix-daemon = {
-      description = "Nix Daemon Socket";
-
-      unitConfig = {
-        RequiresMountsFor = [ "/nix/store" ];
-        ConditionPathIsReadWrite = [ "/nix/var/nix/daemon-socket" ];
-      };
-      socketConfig.ListenStream = "/nix/var/nix/daemon-socket/socket";
-
-      wantedBy = [ "system-manager.target" ];
-    };
+    systemd.sockets.nix-daemon.wantedBy = [ "system-manager.target" ];
   };
 }
