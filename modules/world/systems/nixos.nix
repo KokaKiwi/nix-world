@@ -32,6 +32,7 @@ let
 
           extraSpecialArgs = cfg.extraSpecialArgs // {
             inherit hosts sources;
+            host = config;
           };
         };
       }
@@ -171,6 +172,7 @@ in {
       };
 
       inherit (scripts) activate;
+      inherit (module) config;
 
       packages = module.config.cluster.world.packages;
       pathsToCache = module.config.environment.systemPackages ++ module.config.cluster.world.packages;

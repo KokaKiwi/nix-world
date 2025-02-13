@@ -5,8 +5,6 @@
 
     ./misc
 
-    ./systemd.nix
-
     ./config/networking.nix
     ./config/nix.nix
 
@@ -15,5 +13,6 @@
     ./security/dhparams.nix
 
     ./services
+    ./system
   ];
 }

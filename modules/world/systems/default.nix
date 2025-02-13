@@ -21,6 +21,10 @@
             type = types.path;
             readOnly = true;
           };
+          config = mkOption {
+            type = types.raw;
+            readOnly = true;
+          };
 
           packages = mkOption {
             type = types.listOf types.package;

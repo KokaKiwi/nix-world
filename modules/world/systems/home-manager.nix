@@ -30,6 +30,7 @@ let
 
     extraSpecialArgs = cfg.extraSpecialArgs // {
       inherit hosts sources;
+      host = config;
     };
   };
 
@@ -66,6 +67,7 @@ in {
         inherit env;
       };
       activate = "${package}/activate";
+      inherit (module) config;
 
       packages = module.config.home.packages ++ module.config.cluster.world.packages;
       pathsToCache = packages;

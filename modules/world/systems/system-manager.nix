@@ -39,6 +39,7 @@ let
     extraSpecialArgs = cfg.extraSpecialArgs // {
       inherit (nixpkgs.pkgs) nur;
       inherit hosts sources;
+      host = config;
     };
   };
 
@@ -73,6 +74,7 @@ in {
       activate = pkgs.writeShellScript "activate" ''
         ${package}/activate
       '';
+      inherit (module) config;
 
       packages = module.config.environment.systemPackages ++ module.config.cluster.world.packages;
       pathsToCache = packages;
