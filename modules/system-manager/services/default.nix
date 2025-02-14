@@ -9,5 +9,6 @@
     ./security/vanta-agent.nix
     ./system/nix-daemon.nix
     ./system/uptimed.nix
+    ./web-servers/edgee.nix
   ];
 }

@@ -6,7 +6,7 @@
 }:
 let
   nur-kokakiwi = let
-    devMode = false;
+    devMode = builtins.getEnv "DEV_MODE" == "1";
   in if devMode
   then ../../nur-packages
   else sources."nur/kokakiwi";
