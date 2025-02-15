@@ -144,8 +144,8 @@
     "nixos-24.11": {
       "type": "Channel",
       "name": "nixos-24.11",
-      "url": "https://releases.nixos.org/nixos/24.11/nixos-24.11.714433.0ff09db9d034/nixexprs.tar.xz",
-      "hash": "0pln0ywq9abi7lrgsgrn1q4fhvqar0j69v1n292rpq5lzs5kjkrf"
+      "url": "https://releases.nixos.org/nixos/24.11/nixos-24.11.714486.0b73e36b1962/nixexprs.tar.xz",
+      "hash": "03fm9s2r6fsi4y1hqdf5kx70cgsar2bmbkz1nzg67iaf4spvgk6k"
     },
     "nixpkgs": {
       "type": "Channel",
@@ -161,9 +161,9 @@
         "repo": "NUR"
       },
       "branch": "master",
-      "revision": "946bcaaf78d5569b80c81db7f3ef382f15d33063",
-      "url": "https://github.com/nix-community/NUR/archive/946bcaaf78d5569b80c81db7f3ef382f15d33063.tar.gz",
-      "hash": "0piyh8nq9zllfkp1x7lganbya5splvbf29aa9pxlnplym2q55yc1"
+      "revision": "b9aeca8d75e0ef4c57ffd7b2722466c9ebb2bfa5",
+      "url": "https://github.com/nix-community/NUR/archive/b9aeca8d75e0ef4c57ffd7b2722466c9ebb2bfa5.tar.gz",
+      "hash": "0bbnh8yhds3d5q5v34mnvx93zr7cfb58qsl6r4b3ldr5y9qfk42k"
     },
     "nur/kokakiwi": {
       "type": "Git",
@@ -173,9 +173,9 @@
         "repo": "nur-packages"
       },
       "branch": "main",
-      "revision": "79b97579c3115a3108d25d2120706efdbb3577f7",
-      "url": "https://github.com/KokaKiwi/nur-packages/archive/79b97579c3115a3108d25d2120706efdbb3577f7.tar.gz",
-      "hash": "0m252drmmsc3kqbgq03mn3l2qqaq4yaxkagbdkknykx88w1z9v5r"
+      "revision": "f74e30ddc566ebf50830a3603b30117b986097da",
+      "url": "https://github.com/KokaKiwi/nur-packages/archive/f74e30ddc566ebf50830a3603b30117b986097da.tar.gz",
+      "hash": "0vw3hv023fglndzxsbbs5kaslkh9cd34xz2ckcmqnv3w90wj1jwx"
     },
     "sops-nix": {
       "type": "Git",
