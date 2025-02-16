@@ -24,6 +24,7 @@ let
           ]
           ++ lib.optionals (config.secrets.file != null) [
             "${sources.sops-nix}/modules/home-manager/sops.nix"
+            (modulesPath + "/nixos/misc/secrets.nix")
             {
               sops.defaultSopsFile = config.secrets.file;
             }

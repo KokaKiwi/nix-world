@@ -2,7 +2,6 @@
 {
   imports = [
     ./misc/shared
-    ./misc/secrets.nix
 
     ./networking/openssh.nix
 
