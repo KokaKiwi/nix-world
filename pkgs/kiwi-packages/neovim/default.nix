@@ -85,8 +85,8 @@ in (neovim-unwrapped.override {
   src = fetchFromGitHub {
     owner = "neovim";
     repo = "neovim";
-    rev = "efe92f9dff9383cf78a2d0c857448a14514c7043";
-    hash = "sha256-innBLpafNzB6GRmNXoZlHYCsz5cdSr19fQ6/caSX5Ao=";
+    rev = "906ad04dddff7046bcd61a89455a4ff288be0838";
+    hash = "sha256-7bTB/341pzDiYliXcHqNS9CMr1JrOe1/G89xlHicMHM=";
   };
 
   patches = super.patches or [ ] ++ [
