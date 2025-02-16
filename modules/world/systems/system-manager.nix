@@ -31,6 +31,7 @@ let
       sops.useSystemdActivation = true;
       sops.defaultSopsFile = config.secrets.file;
 
+      systemd.sysusers.groups.keys = { };
       systemd.services.sops-install-secrets = {
         wantedBy = lib.mkForce [ "system-manager.target" ];
       };
