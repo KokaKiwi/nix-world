@@ -6,11 +6,7 @@ in {
     enable = true;
 
     flavour = "vesktop";
-    package = let
-      discord = pkgs.vesktop.override {
-        electron = pkgs.electron_33;
-      };
-    in opengl.wrapPackage discord { };
+    package = opengl.wrapPackage pkgs.kiwiPackages.vesktop { };
 
     vesktop = {
       settings = {

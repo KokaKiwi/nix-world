@@ -1,0 +1,199 @@
+From 504a033631c44b6766b3c403775850fdc3ddb080 Mon Sep 17 00:00:00 2001
+From: KokaKiwi <kokakiwi+git@kokakiwi.net>
+Date: Sun, 16 Feb 2025 13:29:22 +0100
+Subject: [PATCH 1/2] fix: handle loadURL() failures correctly
+
+Squashed commit of the following:
+
+commit b0dcfd84da13e59474155daa8926dd094aee2bb4
+Author: Kylie C <kyliepc@proton.me>
+Date:   Fri Feb 14 00:56:34 2025 -0500
+
+    a
+---
+ scripts/build/build.mts  |  5 +++++
+ src/main/mainWindow.ts   | 27 ++++++++++++++++++++++++---
+ src/main/splash.ts       | 11 +++++++++--
+ src/preload/splash.ts    | 11 +++++++++++
+ static/views/splash.html | 20 +++++++++++++++++++-
+ 5 files changed, 68 insertions(+), 6 deletions(-)
+ create mode 100644 src/preload/splash.ts
+
+diff --git a/scripts/build/build.mts b/scripts/build/build.mts
+index 243381baa3acc540fcd4cea9da64543d4dc01b11..225f3b92f76f702ff97af49e024738885f7b7e64 100644
+--- a/scripts/build/build.mts
++++ b/scripts/build/build.mts
+@@ -63,6 +63,11 @@ await Promise.all([
+         outfile: "dist/js/preload.js",
+         footer: { js: "//# sourceURL=VCDPreload" }
+     }),
++    createContext({
++        ...NodeCommonOpts,
++        entryPoints: ["src/preload/splash.ts"],
++        outfile: "dist/js/splash_preload.js"
++    }),
+     createContext({
+         ...CommonOpts,
+         globalName: "Vesktop",
+diff --git a/src/main/mainWindow.ts b/src/main/mainWindow.ts
+index cbb0def757cb137d48e3f607c3ed5ef6b97c03fb..5c5a30691657e1f9739feffeee08add9af08aaac 100644
+--- a/src/main/mainWindow.ts
++++ b/src/main/mainWindow.ts
+@@ -39,7 +39,7 @@ import {
+ import { darwinURL } from "./index";
+ import { sendRendererCommand } from "./ipcCommands";
+ import { Settings, State, VencordSettings } from "./settings";
+-import { createSplashWindow } from "./splash";
++import { createSplashWindow, updateSplashMessage } from "./splash";
+ import { makeLinksOpenExternally } from "./utils/makeLinksOpenExternally";
+ import { applyDeckKeyboardFix, askToApplySteamLayout, isDeckGameMode } from "./utils/steamOS";
+ import { downloadVencordFiles, ensureVencordFiles } from "./utils/vencordLoader";
+@@ -475,17 +475,36 @@ function createMainWindow() {
+     win.webContents.setUserAgent(BrowserUserAgent);
+ 
+     // if the open-url event is fired (in index.ts) while starting up, darwinURL will be set. If not fall back to checking the process args (which Windows and Linux use for URI calling.)
++    // win.webContents.session.clearCache().then(() => {
+     loadUrl(darwinURL || process.argv.find(arg => arg.startsWith("discord://")));
++    // });
+ 
+     return win;
+ }
+ 
+ const runVencordMain = once(() => require(join(VENCORD_FILES_DIR, "vencordDesktopMain.js")));
+ 
++import { EventEmitter } from "events";
++const eventCar = new EventEmitter();
++
+ export function loadUrl(uri: string | undefined) {
+     const branch = Settings.store.discordBranch;
+     const subdomain = branch === "canary" || branch === "ptb" ? `${branch}.` : "";
+-    mainWin.loadURL(`https://${subdomain}discord.com/${uri ? new URL(uri).pathname.slice(1) || "app" : "app"}`);
++
++    // we do not rely on 'did-finish-load' because it fires even if loadURL fails which triggers early detruction of the splash
++    mainWin
++        .loadURL(`https://${subdomain}discord.com/${uri ? new URL(uri).pathname.slice(1) || "app" : "app"}`)
++        .then(() => eventCar.emit("app-loaded"))
++        .catch(error => retryUrl(error.url, error.code));
++}
++
++const retryDelay = 1000;
++function retryUrl(url: string, description: string) {
++    console.log(`retrying in ${retryDelay}ms`);
++    updateSplashMessage(description);
++    setTimeout(() => {
++        loadUrl(url);
++    }, retryDelay);
+ }
+ 
+ export async function createWindows() {
+@@ -504,7 +523,7 @@ export async function createWindows() {
+ 
+     mainWin = createMainWindow();
+ 
+-    mainWin.webContents.on("did-finish-load", () => {
++    eventCar.on("app-loaded", () => {
+         splash?.destroy();
+ 
+         if (!startMinimized) {
+@@ -527,6 +546,8 @@ export async function createWindows() {
+     });
+ 
+     mainWin.webContents.on("did-navigate", (_, url: string, responseCode: number) => {
++        if (!splash?.isDestroyed()) updateSplashMessage(""); // clear the message
++
+         // check url to ensure app doesn't loop
+         if (responseCode >= 300 && new URL(url).pathname !== `/app`) {
+             loadUrl(undefined);
+diff --git a/src/main/splash.ts b/src/main/splash.ts
+index 2a26761323bfd0f08cd6e2b3f7228ba45ad7eee8..a08b06ec21dea57f3a6ee16e02a3f589322e2111 100644
+--- a/src/main/splash.ts
++++ b/src/main/splash.ts
+@@ -11,11 +11,14 @@ import { ICON_PATH, VIEW_DIR } from "shared/paths";
+ 
+ import { Settings } from "./settings";
+ 
++let splash: BrowserWindow | undefined;
++
+ export function createSplashWindow(startMinimized = false) {
+-    const splash = new BrowserWindow({
++    splash = new BrowserWindow({
+         ...SplashProps,
+         icon: ICON_PATH,
+-        show: !startMinimized
++        show: !startMinimized,
++        webPreferences: { preload: join(__dirname, "splash_preload.js") }
+     });
+ 
+     splash.loadFile(join(VIEW_DIR, "splash.html"));
+@@ -37,3 +40,7 @@ export function createSplashWindow(startMinimized = false) {
+ 
+     return splash;
+ }
++
++export function updateSplashMessage(message: string) {
++    if (splash && !splash.isDestroyed()) splash.webContents.send("update-splash-message", message);
++}
+diff --git a/src/preload/splash.ts b/src/preload/splash.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..c8da79c4949673d8da7daaec56fde485e456371a
+--- /dev/null
++++ b/src/preload/splash.ts
+@@ -0,0 +1,11 @@
++/*
++ * Vesktop, a desktop app aiming to give you a snappier Discord Experience
++ * Copyright (c) 2025 Vendicated and Vesktop contributors
++ * SPDX-License-Identifier: GPL-3.0-or-later
++ */
++
++const { contextBridge, ipcRenderer } = require("electron/renderer");
++
++contextBridge.exposeInMainWorld("electronAPI", {
++    onUpdateMessage: callback => ipcRenderer.on("update-splash-message", (_event, message: string) => callback(message))
++});
+diff --git a/static/views/splash.html b/static/views/splash.html
+index 0c9e11a789c664ddbec150f2218824ee83cc7baf..ad0363ad6e6d53799b777b71d5f501d8a1442128 100644
+--- a/static/views/splash.html
++++ b/static/views/splash.html
+@@ -20,6 +20,14 @@
+             background: var(--bg);
+         }
+ 
++        .message {
++            top: 70%;
++            word-break: break-word;
++            padding: 0 16px;
++            position: absolute;
++            font-size: 14px
++        }
++
+         p {
+             text-align: center;
+         }
+@@ -32,7 +40,7 @@
+     </style>
+ </head>
+ 
+-<body>
++<body style="overflow: hidden;">
+     <div class="wrapper">
+         <img
+             draggable="false"
+@@ -41,5 +49,15 @@
+             role="presentation"
+         />
+         <p>Loading Vesktop...</p>
++        <p class="message"></p>
+     </div>
+ </body>
++
++<script>
++    window.onload = () => {
++        const messageElement = document.querySelector('.message');
++        window.electronAPI.onUpdateMessage((message) => {
++            messageElement.textContent = message;
++        })
++    };
++</script>
+-- 
+2.48.1
+

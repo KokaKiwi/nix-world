@@ -53,10 +53,27 @@ rec {
   man-db = callPackage ./man-db { };
   neovim = callPackage ./neovim { };
   stockfish = callPackage ./games/stockfish { };
+  vencord = callPackage ./vencord {
+    pnpm = pkgs.pnpm_9;
+  };
   vscodium = callPackage ./vscodium { };
 
   llvm = pkgs.llvm_19;
   llvmPackages = pkgs.llvmPackages_19;
+
+  vesktop = let
+    vesktop = pkgs.vesktop.overrideAttrs (final: super: {
+      patches = super.patches ++ [
+        ./vesktop/0001-fix-handle-loadURL-failures-correctly.patch
+        ./vesktop/0002-feat-New-Vesktop-icon.patch
+      ];
+    });
+  in vesktop.override {
+    electron = pkgs.electron_33;
+
+    withSystemVencord = true;
+    inherit vencord;
+  };
 
   gnupg = overrideAttrsIfNewer super.gnupg24 (self: prev: {
     version = "2.4.7";
