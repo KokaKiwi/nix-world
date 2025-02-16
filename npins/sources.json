@@ -161,9 +161,9 @@
         "repo": "NUR"
       },
       "branch": "master",
-      "revision": "e1f86baa19ac560266d5e726d512563c5ace1480",
-      "url": "https://github.com/nix-community/NUR/archive/e1f86baa19ac560266d5e726d512563c5ace1480.tar.gz",
-      "hash": "10j3q53wgc5dgyifiql3y12xxgxg6528ji71sdy6j6iqfv38n34n"
+      "revision": "9f31a73dce4791d431ac2d51c61dc2c0ac5cfb9f",
+      "url": "https://github.com/nix-community/NUR/archive/9f31a73dce4791d431ac2d51c61dc2c0ac5cfb9f.tar.gz",
+      "hash": "08z1lrh73gc2gi0nviz1b2rjgi292xnvg4xff5hgr7rc6r5rv1z7"
     },
     "nur/kokakiwi": {
       "type": "Git",
@@ -173,9 +173,9 @@
         "repo": "nur-packages"
       },
       "branch": "main",
-      "revision": "f74e30ddc566ebf50830a3603b30117b986097da",
-      "url": "https://github.com/KokaKiwi/nur-packages/archive/f74e30ddc566ebf50830a3603b30117b986097da.tar.gz",
-      "hash": "0vw3hv023fglndzxsbbs5kaslkh9cd34xz2ckcmqnv3w90wj1jwx"
+      "revision": "f83074415271ea6c6eac2172a1eff70f064449c5",
+      "url": "https://github.com/KokaKiwi/nur-packages/archive/f83074415271ea6c6eac2172a1eff70f064449c5.tar.gz",
+      "hash": "0pcr5jh0l7j4gkgpvcycaq6nsz8l3zxhi353wlsy4h1m6zcb6lzi"
     },
     "sops-nix": {
       "type": "Git",
