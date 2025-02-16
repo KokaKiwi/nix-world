@@ -1,5 +1,11 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 let
+  cfg = config.programs.bat;
+
+  batman = pkgs.bat-extras.batman.override {
+    bat = cfg.package;
+  };
+
   mapSyntax = lib.mapAttrsToList (name: value: "${name}:${value}");
 in {
   programs.bat = {
@@ -18,10 +24,11 @@ in {
         "header-filesize"
         "grid"
       ];
-      pager = "${lib.getExe pkgs.less} --RAW-CONTROL-CHARS --quit-if-one-screen";
       map-syntax = mapSyntax {
         ".ignore" = "Git Ignore";
       };
     };
   };
+
+  programs.fish.interactiveShellInit = "${lib.getExe batman} --export-env | source";
 }
