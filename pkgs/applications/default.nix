@@ -34,9 +34,6 @@ in util.callPackagesRecursive {
 
       systemd = pkgs.systemdMinimal;
     };
-    vesktop = {
-      pnpm = pkgs.pnpm_9;
-    };
   };
 } // {
   inherit (nixd) nixf nixt nixd;
