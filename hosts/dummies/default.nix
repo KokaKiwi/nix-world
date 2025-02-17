@@ -31,4 +31,9 @@ in {
       targetHost = "146.190.220.156";
     };
   };
+  vps-do-ams3-01 = mkDummy ./vps-do-ams3-01/configuration.nix {
+    nixos.deployment = {
+      targetHost = "165.232.94.202";
+    };
+  };
 }
