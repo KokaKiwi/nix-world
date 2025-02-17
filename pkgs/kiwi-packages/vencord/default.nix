@@ -31,20 +31,16 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   env = {
-    ESBUILD_BINARY_PATH = lib.getExe (
-      esbuild.overrideAttrs (
-        final: _: {
-          version = "0.15.18";
-          src = fetchFromGitHub {
-            owner = "evanw";
-            repo = "esbuild";
-            rev = "v${final.version}";
-            hash = "sha256-b9R1ML+pgRg9j2yrkQmBulPuLHYLUQvW+WTyR/Cq6zE=";
-          };
-          vendorHash = "sha256-+BfxCyg0KkDQpHt/wycy/8CTG6YBA/VJvJFhhzUnSiQ=";
-        }
-      )
-    );
+    ESBUILD_BINARY_PATH = lib.getExe (esbuild.overrideAttrs (final: _: {
+      version = "0.25.0";
+      src = fetchFromGitHub {
+        owner = "evanw";
+        repo = "esbuild";
+        tag = "v${final.version}";
+        hash = "sha256-L9jm94Epb22hYsU3hoq1lZXb5aFVD4FC4x2qNt0DljA=";
+      };
+      vendorHash = "sha256-+BfxCyg0KkDQpHt/wycy/8CTG6YBA/VJvJFhhzUnSiQ=";
+    }));
     VENCORD_REMOTE = "${finalAttrs.src.owner}/${finalAttrs.src.repo}";
     VENCORD_HASH = "${finalAttrs.version}";
   };
