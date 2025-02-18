@@ -20,6 +20,9 @@ in {
       archiveteam-warrior = {
         image = "atdr.meo.ws/archiveteam/warrior-dockerfile";
         ports = [ "8001:8001" ];
+        labels = {
+          "io.containers.autoupdate" = "registry";
+        };
         environment = {
           DOWNLOADER = cfg.nickname;
           SELECTED_PROJECT = lib.mkIf (cfg.project != null) cfg.project;
