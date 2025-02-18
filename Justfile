@@ -1,3 +1,5 @@
+set dotenv-load
+
 host := trim(read("/etc/hostname"))
 
 alias world := build-world
