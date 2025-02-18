@@ -24,6 +24,7 @@ in {
         "header-filesize"
         "grid"
       ];
+      pager = "${lib.getExe pkgs.less} --RAW-CONTROL-CHARS --quit-if-one-screen";
       map-syntax = mapSyntax {
         ".ignore" = "Git Ignore";
       };
