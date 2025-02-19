@@ -4,6 +4,8 @@ let
 
     nixpkgs.version = "24.11";
 
+    groups = [ "dummies" ];
+
     nixos = {
       configuration = {
         imports = [

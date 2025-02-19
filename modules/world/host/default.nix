@@ -10,6 +10,10 @@
     name = mkOption {
       type = types.str;
     };
+    groups = mkOption {
+      type = types.listOf types.str;
+      default = [ ];
+    };
 
     useLix = mkOption {
       type = types.bool;
