@@ -125,6 +125,7 @@ in {
     kokakiwi.enquirer
     kokakiwi.go-mod-upgrade
     kokakiwi.lddtree
+    kokakiwi.wit-deps
   ])
   ++ (with pkgs.kiwiPackages; [
     doll
