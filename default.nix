@@ -15,16 +15,13 @@ let
   };
   inherit (pkgs) lib;
 
-  mkWorld = hosts: let
-    evalHost = name: host: lib.evalModules {
+  mkWorld = configuration: let
+    module = lib.evalModules {
       class = "nix-world";
 
       modules = [
         ./modules/world
-        {
-          name = lib.mkDefault name;
-        }
-        host
+        configuration
       ];
 
       specialArgs = {
@@ -33,25 +30,18 @@ let
           world = import ./lib self;
         });
 
-        hosts = hostModules;
-
         modulesPath = ./modules;
         pkgsPath = ./pkgs;
         secretsPath = ./secrets;
       };
     };
+  in module.config.package // {
+    inherit module;
+    inherit (module) config;
 
-    hostModules = lib.mapAttrs evalHost hosts;
-    hostPackages = lib.mapAttrs (name: module: module.config.package // {
-      inherit module;
-      inherit (module) config;
-    }) hostModules;
-  in pkgs.linkFarm "world" hostPackages // hostPackages // {
-    hosts = hostModules;
+    inherit sources;
+    inherit pkgs lib;
   };
-in {
-  hosts = mkWorld (import ./hosts);
-
-  inherit sources;
-  inherit pkgs lib;
+in mkWorld {
+  hosts = import ./hosts;
 }

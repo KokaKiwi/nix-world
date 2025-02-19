@@ -17,7 +17,7 @@ check: (_run-shell 'check' 'checkUpdates')
 upload-cache: (_run-shell 'upload-cache' 'uploadCache')
 
 build MODULE='':
-  nom-build -A hosts.{{host}}{{ if MODULE != '' { '.' + MODULE } else { '' } }}
+  nom-build -A {{host}}{{ if MODULE != '' { '.' + MODULE } else { '' } }}
 build-world:
   nom-build
 

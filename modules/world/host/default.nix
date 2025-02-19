@@ -1,5 +1,11 @@
 { config, lib, secretsPath, ... }:
 {
+  imports = [
+    ./systems
+    ./nixpkgs.nix
+    ./package.nix
+  ];
+
   options = with lib; {
     name = mkOption {
       type = types.str;
