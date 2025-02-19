@@ -25,8 +25,8 @@ pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
     hostPackages = lib.flatten (lib.mapAttrsToList (_: host:
       lib.flatten (lib.mapAttrsToList (_: system:
         system.packages
-      ) host.config.systems)
-    ) hosts.hosts);
+      ) host.systems)
+    ) hosts);
     extraPackages = let
       neovim = pkgs.kiwiPackages.neovim;
     in with pkgs; [
