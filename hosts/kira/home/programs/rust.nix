@@ -15,7 +15,7 @@ let
     "ndk" "tarpaulin" "cross" "release"
     "wipe" "sort" "leptos" "component"
     "c-next" "make" "audit" "pgo"
-    "semver-checks"
+    "semver-checks" "edit"
   ];
   extraPackages = [
     (pkgs.kiwiPackages.cargo-setup-project.override {
