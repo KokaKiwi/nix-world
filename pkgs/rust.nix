@@ -17,22 +17,6 @@ let
   };
 
   versions = rec {
-    rust_1_79 = {
-      channel = "1.79.0";
-      hash = "sha256-Ngiz76YP4HTY75GGdH2P+APE/DEIx2R/Dn+BwwOyzZU=";
-    };
-    rust_1_80 = {
-      channel = "1.80.1";
-      hash = "sha256-3jVIIf5XPnUU1CRaTyAiO0XHVbJl12MSx3eucTXCjtE=";
-    };
-    rust_1_81 = {
-      channel = "1.81.0";
-      hash = "sha256-VZZnlyP69+Y3crrLHQyJirqlHrTtGTsyiSnZB8jEvVo=";
-    };
-    rust_1_82 = {
-      channel = "1.82.0";
-      hash = "sha256-yMuSb5eQPO/bHv+Bcf/US8LVMbf/G/0MSfiPwBhiPpk=";
-    };
     rust_1_83 = {
       channel = "1.83.0";
       hash = "sha256-s1RPtyvDGJaX/BisLT+ifVfuhDT1nZkZ1NcK8sbwELM=";
@@ -41,8 +25,12 @@ let
       channel = "1.84.1";
       hash = "sha256-vMlz0zHduoXtrlu0Kj1jEp71tYFXyymACW8L4jzrzNA=";
     };
+    rust_1_85 = {
+      channel = "1.85.0";
+      hash = "sha256-AJ6LX/Q/Er9kS15bn9iflkUwcgYqRQxiOIL2ToVAXaU=";
+    };
 
-    stable = rust_1_84;
+    stable = rust_1_85;
     rust = stable;
   };
 
