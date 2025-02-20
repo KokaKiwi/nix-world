@@ -29,6 +29,15 @@ in util.callPackagesRecursive {
     module-server = {
       inherit (rustTools.stable) cargo;
     };
+    rustowl = drv: let
+      toolchain = pkgs.fenix.fromToolchainFile {
+        dir = "${drv.src}/rustowl";
+      };
+
+      rustPlatform = pkgs.rustTools.makeRustPlatform toolchain;
+    in {
+      inherit rustPlatform;
+    };
     syncthingtray._callPackage = kdePackages.callPackage;
     tor = {
       _override = true;

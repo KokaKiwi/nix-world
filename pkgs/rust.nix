@@ -69,6 +69,7 @@ let
     makeRustPlatform rustToolchains.${name}
   ) versions;
 in {
+  inherit makeRustPlatform;
   inherit rustToolchains rustPlatforms;
 } // lib.mapAttrs (name: attrs: rec {
   rustPlatform = rustPlatforms.${name};
