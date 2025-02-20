@@ -178,6 +178,23 @@ in {
     extraWrapperArgs = mkOption {
       type = with types; listOf str;
       default = [ ];
+      example = literalExpression ''
+        [
+          "--suffix"
+          "LIBRARY_PATH"
+          ":"
+          "''${lib.makeLibraryPath [ pkgs.stdenv.cc.cc pkgs.zlib ]}"
+          "--suffix"
+          "PKG_CONFIG_PATH"
+          ":"
+          "''${lib.makeSearchPathOutput "dev" "lib/pkgconfig" [ pkgs.stdenv.cc.cc pkgs.zlib ]}"
+        ]
+      '';
+      description = ''
+        Extra arguments to be passed to the neovim wrapper.
+        This option sets environment variables required for building and running binaries
+        with external package managers like mason.nvim.
+      '';
     };
 
     tree-sitter = {
@@ -232,14 +249,7 @@ in {
     home.sessionVariables = mkIf cfg.defaultEditor {
       EDITOR = "nvim";
     };
-
-    programs.bash.shellAliases = mkIf cfg.vimdiffAlias {
-      vimdiff = "nvim -d";
-    };
-    programs.fish.shellAliases = mkIf cfg.vimdiffAlias {
-      vimdiff = "nvim -d";
-    };
-    programs.zsh.shellAliases = mkIf cfg.vimdiffAlias {
+    home.shellAliases = mkIf cfg.vimdiffAlias {
       vimdiff = "nvim -d";
     };
   };
