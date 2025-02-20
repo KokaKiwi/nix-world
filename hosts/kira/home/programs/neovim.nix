@@ -21,6 +21,11 @@
       luasocket http
     ];
 
+    extraPackages = with pkgs; [
+      rustowl
+      nixd
+    ];
+
     tree-sitter = let
       cc = pkgs.stdenv.cc;
     in {
