@@ -54,7 +54,7 @@ rec {
   neovim = callPackage ./neovim { };
   stockfish = callPackage ./games/stockfish { };
   vencord = callPackage ./vencord {
-    pnpm = pkgs.pnpm_9;
+    pnpm = pkgs.pnpm_10;
   };
   vscodium = callPackage ./vscodium { };
 
