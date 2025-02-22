@@ -71,9 +71,9 @@
         "repo": "fenix"
       },
       "branch": "main",
-      "revision": "019d950c784141c8f3ba6ad5d8a53f72fee0953f",
-      "url": "https://github.com/nix-community/fenix/archive/019d950c784141c8f3ba6ad5d8a53f72fee0953f.tar.gz",
-      "hash": "1z4j388sd7knd1vp6lmx7zjp1pkbl11afaj21ns2jiwf9swhbfzh"
+      "revision": "133a9eb59fb4ddac443ebe5ab2449d3940396533",
+      "url": "https://github.com/nix-community/fenix/archive/133a9eb59fb4ddac443ebe5ab2449d3940396533.tar.gz",
+      "hash": "0dr3xqf595sw0ra2z5na5njpvkq6bw4cwjz258hahg11lvhayr61"
     },
     "home-manager": {
       "type": "Git",
@@ -83,9 +83,9 @@
         "repo": "home-manager"
       },
       "branch": "master",
-      "revision": "0c0b0ac8af6ca76b1fcb514483a9bd73c18f1e8c",
-      "url": "https://github.com/nix-community/home-manager/archive/0c0b0ac8af6ca76b1fcb514483a9bd73c18f1e8c.tar.gz",
-      "hash": "13i7203ksz9x87rxmw2cwx804x8pg0c4kiiwarx4h2kr68xvvq0l"
+      "revision": "f4a07823a298deff0efb0db30f9318511de7c232",
+      "url": "https://github.com/nix-community/home-manager/archive/f4a07823a298deff0efb0db30f9318511de7c232.tar.gz",
+      "hash": "15prmqari6kbpr2syh6kvxajr5g7z5n0i0f1w4ff6as1mrq0za0n"
     },
     "home-manager-24.05": {
       "type": "Git",
@@ -119,9 +119,9 @@
         "repo": "nix-vscode-extensions"
       },
       "branch": "master",
-      "revision": "1262db8fa5e165ed5da3d91ec8202bfe640264ef",
-      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/1262db8fa5e165ed5da3d91ec8202bfe640264ef.tar.gz",
-      "hash": "0dnac6v1635ns7mc9aq78c14snxbsdiv77jwj0gmgc0a8i2c3k8s"
+      "revision": "ba52a14c907e0cece9734e0ff59c3c742b6b1075",
+      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/ba52a14c907e0cece9734e0ff59c3c742b6b1075.tar.gz",
+      "hash": "10hmr2wh6mnraffaddl1ymvg5hrazmkp6ix66fwplhb49zmf0l6w"
     },
     "nixgl": {
       "type": "Git",
@@ -161,9 +161,9 @@
         "repo": "NUR"
       },
       "branch": "master",
-      "revision": "70e2f3c64558bdcc6e87e3e56048ed7ed59aaaea",
-      "url": "https://github.com/nix-community/NUR/archive/70e2f3c64558bdcc6e87e3e56048ed7ed59aaaea.tar.gz",
-      "hash": "163c2kjlcqfmnfvnvf2g6zcby7qjrmx83r7y279k21bhy0bwxx41"
+      "revision": "6cec53b34684074b57e92c4a017160a8ae7b7b37",
+      "url": "https://github.com/nix-community/NUR/archive/6cec53b34684074b57e92c4a017160a8ae7b7b37.tar.gz",
+      "hash": "044kc35cnjqfvai1lk6j321sfvc695dgy97l8a1zrqvnpi30mxi2"
     },
     "nur/kokakiwi": {
       "type": "Git",
@@ -173,9 +173,9 @@
         "repo": "nur-packages"
       },
       "branch": "main",
-      "revision": "b74949de8d43c86a1599f69d8d9d6ae5f1f467b0",
-      "url": "https://github.com/KokaKiwi/nur-packages/archive/b74949de8d43c86a1599f69d8d9d6ae5f1f467b0.tar.gz",
-      "hash": "1zdbnmm7mr886af4x9qk8nh87x34m6f9xwkx8fgkg8w60874kjxq"
+      "revision": "6c155f2f4940b299f44914a33271219d58f9fe53",
+      "url": "https://github.com/KokaKiwi/nur-packages/archive/6c155f2f4940b299f44914a33271219d58f9fe53.tar.gz",
+      "hash": "16dn6gm4y1vc60wxj00lrw9c6ps6pmymxg0fyqqnwgry3kjm5wz4"
     },
     "sops-nix": {
       "type": "Git",
