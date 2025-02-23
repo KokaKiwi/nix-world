@@ -32,8 +32,6 @@ in {
     };
   };
 
-  systemd.services.gotosocial.stopIfChanged = false;
-
   services.nginx = {
     clientMaxBodySize = "40M";
 
