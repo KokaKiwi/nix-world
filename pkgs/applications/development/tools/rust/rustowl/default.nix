@@ -5,20 +5,20 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "rustowl";
-  version = "0.1.3";
+  version = "0.1.4";
 
   src = fetchFromGitHub {
     owner = "cordx56";
     repo = "rustowl";
     tag = "v${version}";
-    hash = "sha256-BSBg1ekytSs4D17tc2J36BRW21505uDksKTBm0Jpjms=";
+    hash = "sha256-va+og3rgmm1bbWPk3GQofQ8S6QKIGr39At8QyKTOA/A=";
   };
 
   cargoRoot = "rustowl";
   buildAndTestSubdir = cargoRoot;
 
   useFetchCargoVendor = true;
-  cargoHash = "sha256-+LwXbib0Sv5ILaO6DM+Jk9IFQMqrfAY8IDB8XjXAN2g=";
+  cargoHash = "sha256-Ovj3/CO2tkdVWELu2cPpb85+obO1CMv0A3AYL6PbvRw=";
 
   meta = {
     description = "Visualize Ownership and Lifetimes in Rust";
