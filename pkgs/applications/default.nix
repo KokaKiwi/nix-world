@@ -21,6 +21,7 @@ in util.callPackagesRecursive {
   overrides = {
     activate-linux._override = true;
     b3sum._override = true;
+    cargo-udeps._override = true;
     commitizen._callPackage = pkgs.python3Packages.callPackage;
     kitty = {
       go = pkgs.go_1_23;
