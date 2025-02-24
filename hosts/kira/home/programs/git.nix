@@ -21,7 +21,6 @@ in {
       stdenv = pkgs.llvmStdenv;
 
       python3 = pkgs.python313;
-      openssl = pkgs.openssl_3_3;
       curl = pkgs.curl.override {
         openssl = pkgs.quictls;
 
