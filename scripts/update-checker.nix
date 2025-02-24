@@ -102,6 +102,7 @@ pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
     knot-resolver = {
       source = "github";
       github = "CZ-NIC/knot-resolver";
+      prefix = "v";
       use_max_tag = true;
     };
     kx-aspe-cli = {
