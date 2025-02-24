@@ -8,6 +8,6 @@ in {
 
   systemd.targets.kresd = lib.mkIf cfg.enable {
     wantedBy = lib.mkForce [ "system-manager.target" ];
-    wants = lib.mkForce (map (i: "kresd@${toString i}.service") (lib.range 1 cfg.instances));
+    unitConfig.WantedBy = lib.mkForce [ "system-manager.target" ];
   };
 }

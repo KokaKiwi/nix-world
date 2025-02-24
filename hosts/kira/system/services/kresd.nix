@@ -8,8 +8,6 @@
       };
     in knot-resolver;
 
-    instances = 2;
-
     extraConfig = lib.readFile ../files/kresd.conf;
   };
 }
