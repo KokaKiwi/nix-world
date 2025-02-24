@@ -1,4 +1,4 @@
-{ pkgs, lib, hosts, ... }:
+{ pkgs, lib, hosts, sources, ... }:
 pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
   doWarn = true;
 
@@ -6,12 +6,12 @@ pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
     ignoredPackages = [
       # Let's nixpkgs handle these
       "nixfmt" "nix-output-monitor" "nvd"
-      "bash" "bash-interactive"
+      "bash" "bash-interactive" "webkitgtk"
       # Too old
       "hub"
       # My own packages
       "cargo-shell" "mux" "xinspect"
-      "doll" "szurubooru-cli"
+      "doll" "szurubooru-cli" "module-server"
       # No version
       "agenix"
       # Aliased
@@ -37,7 +37,11 @@ pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
       usage viceroy yazi-unwrapped
       tig hoppscotch
     ];
-    allPackages = hostPackages ++ extraPackages;
+    localPackages = lib.filter lib.isDerivation (lib.attrValues (import ../pkgs {
+      inherit pkgs sources;
+      super = import sources.nixpkgs { };
+    }));
+    allPackages = hostPackages ++ localPackages ++ extraPackages;
 
     namedPackages = lib.filter (drv: drv ? pname) allPackages;
     includedPackages = lib.filter (drv: !lib.elem drv.pname ignoredPackages) namedPackages;
@@ -94,6 +98,11 @@ pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
       source = "archpkg";
       archpkg = "gnupg";
       strip_release = true;
+    };
+    knot-resolver = {
+      source = "github";
+      github = "CZ-NIC/knot-resolver";
+      use_max_tag = true;
     };
     kx-aspe-cli = {
       source = "git";
