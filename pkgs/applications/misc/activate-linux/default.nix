@@ -16,13 +16,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "activate-linux";
-  version = "1.1.0-unstable-2024-10-03";
+  version = "1.1.0-unstable-2024-11-22";
 
   src = fetchFromGitHub {
     owner = "MrGlockenspiel";
     repo = "activate-linux";
-    rev = "75d00638d552c0b5983caf1c12fa8547e2580969";
-    hash = "sha256-gbLwxgpzNJY8+cGfY3JJCNDB7ZzTweeV4js7j+3nEYE=";
+    rev = "4fb981d69a48bd79d08812a072dad759ab8311f5";
+    hash = "sha256-KxZ+f/L+hr8Pq6ciYB00PITLAe3CtnyyvE0BJQjFhUw=";
   };
 
   nativeBuildInputs = [
