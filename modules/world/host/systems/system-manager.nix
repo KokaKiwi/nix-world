@@ -77,7 +77,9 @@ in {
       '';
       inherit (module) config;
 
-      packages = module.config.environment.systemPackages ++ module.config.cluster.world.packages;
+      packages = module.config.environment.systemPackages
+        ++ module.config.systemd.packages
+        ++ module.config.cluster.world.packages;
       pathsToCache = packages;
     };
   };
