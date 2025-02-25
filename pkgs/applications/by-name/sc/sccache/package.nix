@@ -8,13 +8,13 @@
   darwin,
 }:
 rustPlatform.buildRustPackage rec {
-  version = "0.10.0";
   pname = "sccache";
+  version = "0.10.0";
 
   src = fetchFromGitHub {
     owner = "mozilla";
     repo = "sccache";
-    rev = "v${version}";
+    tag = "v${version}";
     sha256 = "sha256-VEDMeRFQKNPS3V6/DhMWxHR7YWsCzAXTzp0lO+COl08=";
   };
 
@@ -24,10 +24,10 @@ rustPlatform.buildRustPackage rec {
   nativeBuildInputs = [
     pkg-config
   ];
+
   buildInputs = [
     openssl
-  ]
-  ++ lib.optionals stdenv.hostPlatform.isDarwin [
+  ] ++ lib.optionals stdenv.hostPlatform.isDarwin [
     darwin.apple_sdk.frameworks.Security
     darwin.apple_sdk.frameworks.SystemConfiguration
   ];
