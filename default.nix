@@ -35,13 +35,18 @@ let
         secretsPath = ./secrets;
       };
     };
-  in module.config.package // {
-    inherit module;
-    inherit (module) config;
 
-    inherit sources;
-    inherit pkgs lib;
-  };
+    env = {
+      inherit module;
+      inherit (module) config;
+      inherit (module.config.package) hosts;
+
+      inherit sources;
+      inherit pkgs lib;
+
+      inherit env;
+    };
+  in module.config.package // env;
 in mkWorld {
   hosts = import ./hosts;
 }

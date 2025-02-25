@@ -45,9 +45,7 @@ let
           activate = pkgs.writeShellScript "activate-${name}"
             (lib.concatStringsSep "\n" (lib.mapAttrsToList (name: host: "${host.package}/activate") hosts));
         };
-      in pkgs.linkFarm name entries // hostPackages // {
-        inherit hosts;
-      };
+      in pkgs.linkFarm name entries // hostPackages;
     };
   });
 in {
@@ -85,7 +83,8 @@ in {
           (lib.concatStringsSep "\n" (lib.mapAttrsToList (name: host: "${host.package}/activate") config.hosts));
       };
     in pkgs.linkFarm "world" entries // hostPackages // hostGroupPackages // {
-      inherit (config) hosts hostGroups;
+      hosts = hostPackages;
+      hostGroups = hostGroupPackages;
     };
   };
 }

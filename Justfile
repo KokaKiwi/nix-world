@@ -55,7 +55,7 @@ update:
   -git add npins/sources.json && git commit -m 'chore: Update pinned sources'
 
 repl:
-  nix repl -f default.nix
+  nix repl -f default.nix env
 
 push:
   git push -f origin main
