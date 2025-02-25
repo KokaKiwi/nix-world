@@ -4,8 +4,8 @@ let
 
   inherit (world) pkgs lib;
 
-  cacheUploader = import ./scripts/cache-uploader.nix world;
-  updateChecker = import ./scripts/update-checker.nix world;
+  cacheUploader = import ./scripts/cache-uploader.nix world.env;
+  updateChecker = import ./scripts/update-checker.nix world.env;
 
   mkShells = {
     shells,

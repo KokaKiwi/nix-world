@@ -1,4 +1,4 @@
-{ pkgs, lib, hosts, sources, ... }:
+{ config, pkgs, lib, sources, ... }:
 pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
   doWarn = true;
 
@@ -26,7 +26,7 @@ pkgs.nur.repos.kokakiwi.lib.mkUpdateChecker {
       lib.flatten (lib.mapAttrsToList (_: system:
         system.packages
       ) host.systems)
-    ) hosts);
+    ) config.hosts);
     extraPackages = let
       neovim = pkgs.kiwiPackages.neovim;
     in with pkgs; [
