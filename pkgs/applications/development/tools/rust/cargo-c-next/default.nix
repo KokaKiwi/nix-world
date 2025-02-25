@@ -11,17 +11,17 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "cargo-c";
-  version = "0.10.9";
+  version = "0.10.11";
 
   src = fetchCrate {
     inherit pname;
     # this version may need to be updated along with package version
-    version = "${version}+cargo-0.85.0";
-    hash = "sha256-6tS0DD/nWM+XFWX/h2cEwoecE5prpFih/2Mr1hY7wcc=";
+    version = "${version}+cargo-0.86.0";
+    hash = "sha256-cd8ANAuGe41Rvjf65GUfLDpB6X0gyNMKZgwdsnbKVJQ=";
   };
 
   useFetchCargoVendor = true;
-  cargoHash = "sha256-CxoDbW6rcRotFIclBfItSJPEmrXXvJEMzYoq8wLu9PU=";
+  cargoHash = "sha256-ipnVTYm8ShDLxlrCnbpa8PoiJkM6GkgpAI4vboMx9FU=";
 
   nativeBuildInputs = [ pkg-config (lib.getDev curl) ];
   buildInputs = [ openssl curl ];
