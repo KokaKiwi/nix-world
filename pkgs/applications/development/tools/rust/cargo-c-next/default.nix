@@ -1,27 +1,32 @@
-{ lib, stdenv
-
-, fetchCrate
-
-, rustPlatform
-
-, pkg-config
-
-, curl
-, openssl
+{
+  lib,
+  stdenv,
+  rustPlatform,
+  fetchFromGitHub,
+  fetchurl,
+  pkg-config,
+  curl,
+  openssl,
 }:
 rustPlatform.buildRustPackage rec {
   pname = "cargo-c";
   version = "0.10.11";
 
-  src = fetchCrate {
-    inherit pname;
-    # this version may need to be updated along with package version
-    version = "${version}+cargo-0.86.0";
-    hash = "sha256-cd8ANAuGe41Rvjf65GUfLDpB6X0gyNMKZgwdsnbKVJQ=";
+  src = fetchFromGitHub {
+    owner = "lu-zero";
+    repo = "cargo-c";
+    tag = "v${version}";
+    hash = "sha256-DvccPZzKSSZDt4APXWtYAcZptaRErmbZmqg0FVWrM/Y=";
   };
 
-  useFetchCargoVendor = true;
-  cargoHash = "sha256-ipnVTYm8ShDLxlrCnbpa8PoiJkM6GkgpAI4vboMx9FU=";
+  cargoLock.lockFile = fetchurl {
+    url = "https://github.com/lu-zero/cargo-c/releases/download/v${version}/Cargo.lock";
+    hash = "sha256-xl7h/NL++go8VyR3JDxkMm8h/1yFuWCnl1ZjFBEh65E=";
+  };
+
+  postPatch = ''
+    ln -s ${cargoLock.lockFile} ./Cargo.lock
+  '';
 
   nativeBuildInputs = [ pkg-config (lib.getDev curl) ];
   buildInputs = [ openssl curl ];
