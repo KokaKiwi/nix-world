@@ -173,9 +173,9 @@
         "repo": "nur-packages"
       },
       "branch": "main",
-      "revision": "6c155f2f4940b299f44914a33271219d58f9fe53",
-      "url": "https://github.com/KokaKiwi/nur-packages/archive/6c155f2f4940b299f44914a33271219d58f9fe53.tar.gz",
-      "hash": "16dn6gm4y1vc60wxj00lrw9c6ps6pmymxg0fyqqnwgry3kjm5wz4"
+      "revision": "0c0893f7d7d5b52c161974faaba7215b3b1b2bc5",
+      "url": "https://github.com/KokaKiwi/nur-packages/archive/0c0893f7d7d5b52c161974faaba7215b3b1b2bc5.tar.gz",
+      "hash": "1fib7khr3j3gchnh8b9glv50dpf2rq1hhjbll89kcsaddchwjixb"
     },
     "sops-nix": {
       "type": "Git",
