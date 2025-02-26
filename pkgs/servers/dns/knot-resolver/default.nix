@@ -36,11 +36,11 @@ let # un-indented, over the whole file
 
   unwrapped = stdenv.mkDerivation rec {
     pname = "knot-resolver";
-    version = "6.0.10";
+    version = "6.0.11";
 
     src = fetchurl {
       url = "https://secure.nic.cz/files/knot-resolver/${pname}-${version}.tar.xz";
-      hash = "sha256-t8sLNnKDYRRYF0fMXt3kxludB/jWYooAvOsLVqFL45U=";
+      hash = "sha256-X/mAKD5MVI2BvUD4jtzjd8sO4f6wZwn3Jh4cowwovsk=";
     };
 
     outputs = [
@@ -61,13 +61,6 @@ let # un-indented, over the whole file
       # ExecStart can't be overwritten in overrides.
       # We need that to use wrapped executable and correct config file.
       sed '/^ExecStart=/d' -i systemd/kresd@.service.in
-    ''
-    # https://gitlab.nic.cz/knot/knot-resolver/-/issues/925
-    + ''
-      patch modules/http/meson.build <<EOF
-      @@ -22 +21,0 @@
-      -  ['http', files('http.test.lua')],
-      EOF
     ''
     # some tests have issues with network sandboxing, apparently
     + optionalString doInstallCheck ''
