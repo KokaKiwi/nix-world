@@ -48,7 +48,7 @@ update-vscode:
 update-bun:
   nix-update --commit pkgs.bun \
     --override-filename ./pkgs/overrides.nix \
-    --version=(curl 'https://api.github.com/repos/oven-sh/bun/releases/latest' | jq '.tag_name | ltrimstr("bun-v")')
+    --version=$(curl 'https://api.github.com/repos/oven-sh/bun/releases/latest' | jq -r '.tag_name | ltrimstr("bun-v")')
 
 update:
   npins update
