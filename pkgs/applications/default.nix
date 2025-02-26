@@ -21,6 +21,9 @@ in util.callPackagesRecursive {
   overrides = {
     activate-linux._override = true;
     b3sum._override = true;
+    cargo-about = {
+      inherit (rustTools.stable) rustPlatform;
+    };
     cargo-deny = {
       inherit (rustTools.stable) rustPlatform;
     };
