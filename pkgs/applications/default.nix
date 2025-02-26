@@ -33,6 +33,9 @@ in util.callPackagesRecursive {
       go = pkgs.go_1_23;
       buildGoModule = pkgs.buildGo123Module;
     };
+    mise = {
+      inherit (rustTools.stable) rustPlatform;
+    };
     module-server = {
       inherit (rustTools.stable) cargo;
     };
