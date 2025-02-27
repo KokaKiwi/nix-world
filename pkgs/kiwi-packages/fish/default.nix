@@ -207,6 +207,7 @@ in stdenv.mkDerivation (finalAttrs: {
     cmake
     cargo
     rustc
+    sphinx
     rustPlatform.cargoSetupHook
     # Avoid warnings when building the manpages about HOME not being writable
     writableTmpDirAsHomeHook
