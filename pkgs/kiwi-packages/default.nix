@@ -1,5 +1,7 @@
 { pkgs, lib, super }:
-rec {
+let
+  inherit (pkgs) rustTools;
+in rec {
   callPackage = lib.callPackageWith (pkgs // {
     inherit (pkgs.kiwiPackages) libgit2;
   });
@@ -49,6 +51,7 @@ rec {
   dwarfs = callPackage ./dwarfs {
     stdenv = pkgs.llvmStdenv;
   };
+  fish = callPackage ./fish { };
   libgit2 = pkgs.libgit2;
   man-db = callPackage ./man-db { };
   neovim = callPackage ./neovim { };
