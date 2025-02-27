@@ -2,10 +2,7 @@
 {
   programs.fish = {
     enable = true;
-    package = pkgs.fish.override {
-      stdenv = pkgs.llvmStdenv;
-      python3 = pkgs.python312;
-
+    package = pkgs.kiwiPackages.fish.override {
       useOperatingSystemEtc = false;
     };
 
