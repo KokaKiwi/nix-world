@@ -8,13 +8,13 @@
 }:
 buildGoModule rec {
   pname = "docker-credential-helpers";
-  version = "0.8.2";
+  version = "0.9.1";
 
   src = fetchFromGitHub {
     owner = "docker";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-LFXSfb4JnlacSZVnIf+5/A+KefARYadEGDzGtcSDJBw=";
+    sha256 = "sha256-B6jx2MkX47N0tNpQkGHHrWcTy1h7SOL+biMPL6Offjw=";
   };
 
   vendorHash = null;
