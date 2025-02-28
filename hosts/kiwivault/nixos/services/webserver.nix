@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, pkgs, lib, ... }:
 let
   inherit (config.lib) secrets;
 
@@ -39,6 +39,7 @@ in {
   config = {
     services.nginx = {
       enable = true;
+      package = pkgs.nginxQuic;
 
       recommendedGzipSettings = true;
       recommendedOptimisation = true;
@@ -48,8 +49,8 @@ in {
       virtualHosts = lib.mapAttrs' (_: service: let
         hostConfig = with lib; mkMerge [
           {
-            serverName = "${service.name}.kiwivault.internal";
-            serverAliases = [
+            serverName = mkDefault "${service.name}.kiwivault.internal";
+            serverAliases = mkDefault [
               "${service.name}.kiwivault.ygg"
               "${service.name}.kiwivault.lan"
             ];
@@ -57,10 +58,10 @@ in {
             inherit (service) default;
           }
           {
-            forceSSL = true;
+            forceSSL = mkDefault true;
 
-            sslCertificate = secrets.path "nginx-cert.cert";
-            sslCertificateKey = secrets.path "nginx-cert.key";
+            sslCertificate = mkDefault (secrets.path "nginx-cert.cert");
+            sslCertificateKey = mkDefault (secrets.path "nginx-cert.key");
           }
           (mkIf (service.proxyPass != null) {
             locations."/" = {

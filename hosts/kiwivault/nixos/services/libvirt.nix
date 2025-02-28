@@ -1,5 +1,7 @@
-{ pkgs, ... }:
-{
+{ config, pkgs, ... }:
+let
+  inherit (config.lib) yggdrasil;
+in {
   virtualisation.libvirtd = {
     enable = true;
 
@@ -22,7 +24,25 @@
     };
   };
 
-  webserver.services.home = {
-    proxyPass = "http://192.168.1.81:8123";
+  webserver.services = {
+    home = {
+      proxyPass = "http://192.168.1.81:8123";
+    };
+
+    home-remote = {
+      default = true;
+      proxyPass = "http://192.168.1.81:8123";
+
+      extraConfig = {
+        forceSSL = false;
+
+        listen = [
+          {
+            addr = "[${yggdrasil.address}]";
+            port = 8123;
+          }
+        ];
+      };
+    };
   };
 }
