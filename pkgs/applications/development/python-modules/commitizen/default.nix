@@ -30,7 +30,7 @@
 }:
 buildPythonPackage rec {
   pname = "commitizen";
-  version = "4.2.2";
+  version = "4.3.0";
   pyproject = true;
 
   disabled = pythonOlder "3.8";
@@ -39,7 +39,7 @@ buildPythonPackage rec {
     owner = "commitizen-tools";
     repo = "commitizen";
     tag = "v${version}";
-    hash = "sha256-mdN9HTL3g59jdap1VU9pLFCHQowbHxZFaRLtiBiIIQI=";
+    hash = "sha256-BdIM5gY2Gl9q69rfe5H757q57JIY10d/LoKleOUtyFA=";
   };
 
   pythonRelaxDeps = [
