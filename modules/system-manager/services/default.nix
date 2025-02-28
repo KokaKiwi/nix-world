@@ -1,5 +1,6 @@
 {
   imports = [
+    ./continuous-integration/gitlab-runner.nix
     ./databases/postgresql.nix
     ./monitoring/osquery.nix
     ./networking/dnsproxy.nix

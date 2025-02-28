@@ -14,5 +14,7 @@
 
     ./services
     ./system
+
+    ./virtualisation/docker.nix
   ];
 }

@@ -17,15 +17,25 @@
       checks = rawOption { };
     };
 
-    networking.dhcpcd = rawOption {
-      enable = false;
-    };
-    networking.resolvconf = rawOption {
-      enable = false;
+    networking = {
+      dhcpcd = rawOption {
+        enable = false;
+      };
+      proxy = rawOption {
+        envVars = { };
+      };
+      resolvconf = rawOption {
+        enable = false;
+      };
     };
     services = {
       openssh = rawOption { enable = false; };
       resolved = rawOption { enable = false; };
+    };
+    virtualisation = {
+      podman = rawOption {
+        enable = false;
+      };
     };
   };
 }
