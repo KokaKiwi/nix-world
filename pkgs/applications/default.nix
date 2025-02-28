@@ -29,6 +29,12 @@ in util.callPackagesRecursive {
     };
     cargo-udeps._override = true;
     commitizen._callPackage = pkgs.python3Packages.callPackage;
+    gajim = {
+      inherit (pkgs.gst_all_1) gstreamer gst-plugins-base gst-libav;
+      gst-plugins-good = pkgs.gst_all_1.gst-plugins-good.override {
+        gtkSupport = true;
+      };
+    };
     kitty = {
       go = pkgs.go_1_23;
       buildGoModule = pkgs.buildGo123Module;
