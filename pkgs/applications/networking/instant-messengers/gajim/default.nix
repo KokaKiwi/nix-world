@@ -37,9 +37,11 @@
   libappindicator-gtk3,
   extraPythonPackages ? ps: [ ],
 }:
-python3.pkgs.buildPythonApplication rec {
+let
+  nbxmpp = python3.pkgs.callPackage ./deps/nbxmpp.nix { };
+in python3.pkgs.buildPythonApplication rec {
   pname = "gajim";
-  version = "1.9.5";
+  version = "2.0.0";
 
   # src = fetchurl {
   #   url = "https://gajim.org/downloads/${lib.versions.majorMinor version}/gajim-${version}.tar.gz";
@@ -50,7 +52,7 @@ python3.pkgs.buildPythonApplication rec {
     owner = "gajim";
     repo = "gajim";
     tag = version;
-    hash = "sha256-cN1aaqduHfZTDU71ZkQWXbvp7+qJxphRX+nKe9g+sk8=";
+    hash = "sha256-BI8AGhWf85mRxw0SWDqRvABfOu8438JvAXAicIqk568=";
   };
 
   format = "pyproject";
@@ -134,6 +136,10 @@ python3.pkgs.buildPythonApplication rec {
 
   # necessary for wrapGAppsHook3
   strictDeps = false;
+
+  passthru.dependencies = {
+    inherit nbxmpp;
+  };
 
   meta = {
     homepage = "http://gajim.org/";
