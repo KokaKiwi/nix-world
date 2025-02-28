@@ -71,9 +71,9 @@
         "repo": "fenix"
       },
       "branch": "main",
-      "revision": "1cd5aefedb8f2be2c981856a71671bde9f8eb10b",
-      "url": "https://github.com/nix-community/fenix/archive/1cd5aefedb8f2be2c981856a71671bde9f8eb10b.tar.gz",
-      "hash": "1ic8gh1b9ff2kvibs63hrx1qqx3ckxsl5lv48cfmwsvcfnz9shxh"
+      "revision": "edf7d9e431cda8782e729253835f178a356d3aab",
+      "url": "https://github.com/nix-community/fenix/archive/edf7d9e431cda8782e729253835f178a356d3aab.tar.gz",
+      "hash": "184gsn263sc6642kpyfmwrrgixxc2ff6aggxmi7mgiw9wwicnn0g"
     },
     "home-manager": {
       "type": "Git",
@@ -83,9 +83,9 @@
         "repo": "home-manager"
       },
       "branch": "master",
-      "revision": "b8869e4ead721bbd4f0d6b927e8395705d4f16e6",
-      "url": "https://github.com/nix-community/home-manager/archive/b8869e4ead721bbd4f0d6b927e8395705d4f16e6.tar.gz",
-      "hash": "0i8flhc88cvpi1vr0z6qfvk03nph2m940m1miwn18h1p0baglczi"
+      "revision": "b71edac7a3167026aabea82a54d08b1794088c21",
+      "url": "https://github.com/nix-community/home-manager/archive/b71edac7a3167026aabea82a54d08b1794088c21.tar.gz",
+      "hash": "0cl54fsw4vlbr95x8i1c4gh8lqj9pr3iysjn7yi23x7x6lmn9n5g"
     },
     "home-manager-24.05": {
       "type": "Git",
@@ -119,9 +119,9 @@
         "repo": "nix-vscode-extensions"
       },
       "branch": "master",
-      "revision": "47c6dc751912a32530ebfc0c8caff75ee8bb30f9",
-      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/47c6dc751912a32530ebfc0c8caff75ee8bb30f9.tar.gz",
-      "hash": "0azdhgdkh7l0kfrg2hfcdzwhchg0d4gdmmrakh2b6szk311l87zp"
+      "revision": "780a1d35ccd6158ed2c7d10d87c02825e97b4c89",
+      "url": "https://github.com/nix-community/nix-vscode-extensions/archive/780a1d35ccd6158ed2c7d10d87c02825e97b4c89.tar.gz",
+      "hash": "0zinzp6q7cynlhw9izgi2491l7jc9mzgp7drwga7fgwfqi6nnp7f"
     },
     "nixgl": {
       "type": "Git",
@@ -144,8 +144,8 @@
     "nixos-24.11": {
       "type": "Channel",
       "name": "nixos-24.11",
-      "url": "https://releases.nixos.org/nixos/24.11/nixos-24.11.714876.5d7db4668d7a/nixexprs.tar.xz",
-      "hash": "1s23zv69406n43l2l90ibignyippbwcgllj5y51yxnnqmayz3y3g"
+      "url": "https://releases.nixos.org/nixos/24.11/nixos-24.11.714925.f44bd8ca21e0/nixexprs.tar.xz",
+      "hash": "07i2f5smg4yy17q1s86ckkwzzgvy02jn7i6drwmid6pxjdidlg60"
     },
     "nixpkgs": {
       "type": "Channel",
@@ -161,9 +161,9 @@
         "repo": "NUR"
       },
       "branch": "master",
-      "revision": "2e80b737688496c5a3b0557009c8aa0bb5d0f98c",
-      "url": "https://github.com/nix-community/NUR/archive/2e80b737688496c5a3b0557009c8aa0bb5d0f98c.tar.gz",
-      "hash": "1k5bwyya6bbzag4kprzvmsm06rpjcxjg5l42jmyz9zss7glgc719"
+      "revision": "906d0e30b6d9c63b7df13e05b310368cd97372e8",
+      "url": "https://github.com/nix-community/NUR/archive/906d0e30b6d9c63b7df13e05b310368cd97372e8.tar.gz",
+      "hash": "0yl0n8vqygh04k6j4wciayghcy3alqjgphjrz4aqc608jjnbjia5"
     },
     "nur/kokakiwi": {
       "type": "Git",
@@ -173,9 +173,9 @@
         "repo": "nur-packages"
       },
       "branch": "main",
-      "revision": "d6ff6c6dc9653c7194fd73f64c1c0558826692a0",
-      "url": "https://github.com/KokaKiwi/nur-packages/archive/d6ff6c6dc9653c7194fd73f64c1c0558826692a0.tar.gz",
-      "hash": "035493vrlslnyvjs10cw74f6i6ilwv0v0bglm1sc46mfmf4v1xj0"
+      "revision": "47b82f6f07e0ed8a72d1b2f5aec4601bf126de4c",
+      "url": "https://github.com/KokaKiwi/nur-packages/archive/47b82f6f07e0ed8a72d1b2f5aec4601bf126de4c.tar.gz",
+      "hash": "126242mybwmjc4wq1zq2xzx2px5mpagrh4jhq3anrj924lzsyvjp"
     },
     "sops-nix": {
       "type": "Git",
@@ -209,9 +209,9 @@
         "repo": "system-manager"
       },
       "branch": "main",
-      "revision": "82d5a9ecd15ec48bcbfbacf5462066ee267d6aae",
-      "url": "https://github.com/numtide/system-manager/archive/82d5a9ecd15ec48bcbfbacf5462066ee267d6aae.tar.gz",
-      "hash": "18h18zpm0vprkrizhh2xx4akfgi0m1a26s9pdc2bga963yslm40m"
+      "revision": "db89a99a45265a9810c4556b9f36fe2c94dcd144",
+      "url": "https://github.com/numtide/system-manager/archive/db89a99a45265a9810c4556b9f36fe2c94dcd144.tar.gz",
+      "hash": "0p3j24vy52ih6nnxvn6k3favgsibcc7dyrd4qn68ngx8dfqszimk"
     },
     "vpsadminos": {
       "type": "Git",
